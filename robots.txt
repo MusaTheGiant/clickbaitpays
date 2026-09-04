@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://clickbaitpaysus.com/sitemap.xml
