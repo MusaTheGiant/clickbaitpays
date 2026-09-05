@@ -552,10 +552,11 @@ html[data-theme="light"] .circuit-backdrop { opacity: .22; }
 .hero-v2 .button { min-height: 56px; padding-inline: 1.4rem; }
 .hero-access-links { width: 100%; display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: .35rem .75rem; margin: 1rem 0 0; color: var(--muted); font-size: .84rem; text-align: left; }
 .hero-access-links .text-link { margin: 0; }
-.campaign-teaser { display: grid; grid-template-columns: minmax(260px, .68fr) minmax(0, 1.55fr); gap: clamp(1.5rem, 4vw, 3.5rem); align-items: center; }
-.campaign-teaser-copy { max-width: 430px; }
-.campaign-teaser-copy .button { margin-top: .45rem; }
+.campaign-teaser { display: grid; grid-template-columns: minmax(260px, .68fr) minmax(0, 1.55fr); grid-template-areas: "copy table" "action table"; column-gap: clamp(1.5rem, 4vw, 3.5rem); row-gap: .7rem; align-items: center; }
+.campaign-teaser-copy { grid-area: copy; max-width: 430px; align-self: end; }
+.campaign-teaser-action { grid-area: action; align-self: start; }
 .campaign-table-compact { min-width: 0; }
+.campaign-table-compact { grid-area: table; }
 .campaign-table-compact .table-wrap { scrollbar-width: thin; scrollbar-color: var(--cyan) var(--surface-3); box-shadow: 0 18px 46px rgba(0, 0, 0, .2); }
 .campaign-table-compact table { min-width: 840px; font-size: .69rem; }
 .campaign-table-compact th, .campaign-table-compact td { padding: .62rem .48rem; }
@@ -963,8 +964,9 @@ h1, h2, h3, p, a, strong { overflow-wrap: break-word; }
 }
 
 @media (max-width: 900px) {
-  .campaign-teaser { grid-template-columns: 1fr; }
+  .campaign-teaser { grid-template-columns: 1fr; grid-template-areas: "copy" "table" "action"; row-gap: 1.35rem; }
   .campaign-teaser-copy { max-width: 720px; }
+  .campaign-teaser-action .button { width: 100%; }
 }
 
 @media (max-width: 560px) {
