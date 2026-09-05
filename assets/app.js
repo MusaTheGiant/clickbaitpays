@@ -4,18 +4,19 @@
   const progressKey = "cbp-completed-lessons-v1";
   const themeKey = "cbp-theme-v2";
   const consentKey = "cbp-analytics-consent-v1";
-  const totalLessons = 10;
+  const totalLessons = 11;
   const lessonPath = [
     [1, "what-is-clickbaitpays.html", "What Is ClickBaitPays?", "Understand the advertising-service model, who the platform connects, and the value it is designed to create."],
     [2, "how-clickbaitpays-works.html", "How ClickBaitPays Works", "Follow the journey from registration and campaign purchase to daily activity and balance release."],
     [3, "advertiser-viewer-benefits.html", "Web Traffic, Advertisers, and Viewers", "Understand traffic, advertising, marketing, and why visits do not guarantee conversions."],
-    [4, "campaign-levels.html", "Campaign Levels 1 to 7", "Learn to read campaign costs, activation fees, daily ads, and completion figures correctly."],
-    [5, "daily-clicks-earnings.html", "Daily Clicks and the Earnings Lifecycle", "Separate daily activity, campaign completion, the hold, and Available Balance."],
-    [6, "referral-rewards.html", "Direct Referral Rewards", "Understand the stated one-level affiliate structure and optional referrals."],
-    [7, "staggered-campaign-strategy.html", "Staggered Campaign Strategy", "Explore scheduling while keeping affordability, workload, and platform limits visible."],
-    [8, "crypto-deposits-withdrawals.html", "Crypto Deposits and Withdrawals", "Use careful network, address, wallet, and transaction checks."],
-    [9, "back-office-walkthrough.html", "Back Office Walkthrough", "Learn where the main account and campaign functions are located."],
-    [10, "account-rules-safety.html", "Account Rules and Safety", "Protect the account, follow household rules, and choose responsible next steps."]
+    [4, "platform-sustainability.html", "Platform Sustainability", "See how advertising revenue, activation fees, withdrawal fees, and activity-linked rewards support the model."],
+    [5, "campaign-levels.html", "Campaign Levels 1 to 7", "Learn to read campaign costs, activation fees, daily ads, and completion figures correctly."],
+    [6, "daily-clicks-earnings.html", "Daily Clicks and the Earnings Lifecycle", "Separate daily activity, campaign completion, the hold, and Available Balance."],
+    [7, "referral-rewards.html", "Direct Referral Rewards", "Understand the stated one-level affiliate structure and optional referrals."],
+    [8, "staggered-campaign-strategy.html", "Staggered Campaign Strategy", "Explore scheduling while keeping affordability, workload, and platform limits visible."],
+    [9, "crypto-deposits-withdrawals.html", "Crypto Deposits and Withdrawals", "Use careful network, address, wallet, and transaction checks."],
+    [10, "back-office-walkthrough.html", "Back Office Walkthrough", "Learn where the main account and campaign functions are located."],
+    [11, "account-rules-safety.html", "Account Rules and Safety", "Protect the account, follow household rules, and choose responsible next steps."]
   ];
 
   const readCompleted = () => {
@@ -32,9 +33,9 @@
   };
 
   const milestone = count => {
-    if (count >= 10) return "Learning journey complete. You stayed with it and earned this moment.";
-    if (count >= 7) return "Seven lessons complete. Your consistency is showing.";
-    if (count >= 5) return "Halfway there. You are turning information into understanding.";
+    if (count >= 11) return "Learning journey complete. You stayed with it and earned this moment.";
+    if (count >= 8) return "Eight lessons complete. Your consistency is showing.";
+    if (count >= 6) return "More than halfway. You are turning information into understanding.";
     if (count >= 3) return "Three lessons complete. Your foundation is getting stronger.";
     if (count >= 1) return "Strong start. You chose understanding before action.";
     return "Every expert starts with one clear lesson.";
@@ -66,7 +67,7 @@
     if (currentLesson && completed.has(currentLesson)) unlockNext(document.querySelector("[data-next-lesson]"));
 
     const nextLesson = lessonPath.find(([number]) => !completed.has(number));
-    const nextTarget = nextLesson || [11, "completion.html", "Journey Completion", "Review what you learned, celebrate your commitment, and choose a responsible next step."];
+    const nextTarget = nextLesson || [12, "completion.html", "Journey Completion", "Review what you learned, celebrate your commitment, and choose a responsible next step."];
     document.querySelectorAll("[data-continue-link]").forEach(link => {
       link.href = nextTarget[1];
       if (link.closest(".next-lesson-card")) link.textContent = nextLesson ? "Continue Lesson" : "View Completion";
@@ -85,7 +86,7 @@
     const completionCopy = document.querySelector("[data-completion-copy]");
     if (completionHeading && completionCopy && count === totalLessons) {
       completionHeading.textContent = "You did it. You understand the bigger picture.";
-      completionCopy.textContent = "You worked through all ten lessons, tested your understanding, corrected mistakes, and reached the end with more clarity. Not everyone takes time to learn before acting. You did.";
+      completionCopy.textContent = "You worked through all eleven lessons, tested your understanding, corrected mistakes, and reached the end with more clarity. Not everyone takes time to learn before acting. You did.";
       document.body.classList.add("journey-complete");
     }
   };
@@ -146,12 +147,14 @@
   dashboardSidebar?.querySelectorAll("a").forEach(link => link.addEventListener("click", closeDashboardMenu));
   document.addEventListener("keydown", event => { if (event.key === "Escape") closeDashboardMenu(); });
 
-  const videoOpenButton = document.querySelector("[data-video-open]");
+  const videoOpenButtons = document.querySelectorAll("[data-video-open]");
   const videoModal = document.querySelector("[data-video-modal]");
   const videoPlayerSlot = document.querySelector("[data-video-player]");
-  const videoId = "gWkLEgBFVEY";
+  const videoModalLabel = videoModal?.querySelector("[data-video-modal-label]");
+  const videoModalTitle = videoModal?.querySelector("[data-video-modal-title]");
   let videoPlayer = null;
   let videoReturnFocus = null;
+  let activeVideo = null;
   let youtubeApiPromise = null;
 
   const loadYouTubeApi = () => {
@@ -172,7 +175,7 @@
     return youtubeApiPromise;
   };
 
-  const closeLandingVideo = (completed = false) => {
+  const closeVideo = (completed = false) => {
     if (!videoModal || videoModal.hidden) return;
     try { videoPlayer?.destroy(); } catch {}
     videoPlayer = null;
@@ -183,9 +186,19 @@
     if (completed) showToast("Great watch! Continue below when you are ready to learn more.");
   };
 
-  const openLandingVideo = async () => {
+  const openVideo = async button => {
     if (!videoModal || !videoPlayerSlot) return;
-    videoReturnFocus = document.activeElement;
+    const videoId = button.dataset.videoId;
+    if (!videoId) return;
+    activeVideo = {
+      id: videoId,
+      title: button.dataset.videoTitle || "ClickBaitPays Video",
+      label: button.dataset.videoLabel || "WATCH VIDEO",
+      url: button.dataset.videoUrl || `https://www.youtube.com/watch?v=${videoId}`
+    };
+    videoReturnFocus = button;
+    if (videoModalLabel) videoModalLabel.textContent = activeVideo.label;
+    if (videoModalTitle) videoModalTitle.textContent = activeVideo.title;
     videoModal.hidden = false;
     document.body.classList.add("video-modal-open");
     videoPlayerSlot.innerHTML = '<div class="video-loading" role="status"><span aria-hidden="true"></span><p>Preparing your video...</p></div>';
@@ -193,8 +206,8 @@
     try {
       const YT = await loadYouTubeApi();
       if (videoModal.hidden) return;
-      videoPlayerSlot.innerHTML = '<div id="landing-youtube-player"></div>';
-      videoPlayer = new YT.Player("landing-youtube-player", {
+      videoPlayerSlot.innerHTML = '<div id="cbp-youtube-player"></div>';
+      videoPlayer = new YT.Player("cbp-youtube-player", {
         host: "https://www.youtube-nocookie.com",
         videoId,
         playerVars: {
@@ -207,21 +220,22 @@
         },
         events: {
           onStateChange: event => {
-            if (event.data === YT.PlayerState.ENDED) closeLandingVideo(true);
+            if (event.data === YT.PlayerState.ENDED) closeVideo(true);
           }
         }
       });
     } catch {
-      videoPlayerSlot.innerHTML = '<div class="video-load-error"><strong>The video could not load here.</strong><p>You can still watch the same overview directly on YouTube.</p><a class="button primary" href="https://www.youtube.com/watch?v=gWkLEgBFVEY" target="_blank" rel="noopener">Watch on YouTube</a></div>';
+      const safeUrl = activeVideo?.url || "https://www.youtube.com/@clickbaitpaysus";
+      videoPlayerSlot.innerHTML = `<div class="video-load-error"><strong>The video could not load here.</strong><p>You can still watch it directly on YouTube.</p><a class="button primary" href="${safeUrl}" target="_blank" rel="noopener">Watch on YouTube</a></div>`;
     }
   };
 
-  videoOpenButton?.addEventListener("click", openLandingVideo);
-  videoModal?.querySelectorAll("[data-video-close]").forEach(button => button.addEventListener("click", () => closeLandingVideo()));
+  videoOpenButtons.forEach(button => button.addEventListener("click", () => openVideo(button)));
+  videoModal?.querySelectorAll("[data-video-close]").forEach(button => button.addEventListener("click", () => closeVideo()));
   videoModal?.addEventListener("keydown", event => {
     if (event.key === "Escape") {
       event.preventDefault();
-      closeLandingVideo();
+      closeVideo();
       return;
     }
     if (event.key !== "Tab") return;
@@ -236,6 +250,15 @@
       event.preventDefault();
       first.focus();
     }
+  });
+
+  const scrollTopButton = document.querySelector("[data-scroll-top]");
+  const updateScrollTop = () => scrollTopButton?.classList.toggle("is-visible", window.scrollY > 520);
+  updateScrollTop();
+  window.addEventListener("scroll", updateScrollTop, { passive: true });
+  scrollTopButton?.addEventListener("click", () => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
   });
 
   document.querySelectorAll(".flashcard").forEach(card => {

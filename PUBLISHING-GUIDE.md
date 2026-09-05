@@ -2,18 +2,18 @@
 
 **Domain:** `clickbaitpaysus.com`  
 **Website package:** `ClickBaitPays_GitHub_Pages_Website.zip`  
-**Prepared:** 2 September 2026
+**Prepared:** 5 September 2026
 
 ## 1. What Is Ready
 
 The website package contains the complete static site:
 
-- `index.html` and 25 additional HTML pages
+- `index.html` and 26 additional HTML pages, including a non-indexable custom 404 page
 - A focused public landing page plus a separate professional learning dashboard
 - Shared CSS and JavaScript
 - Logo and favicon
-- Social-preview image
-- Ten lesson quizzes
+- 26 unique page-specific social-preview images
+- Eleven lesson quizzes
 - Device-local progress tracking
 - Flashcards, glossary search, FAQ accordions, and milestone messages
 - `CNAME` for `clickbaitpaysus.com`
@@ -106,12 +106,19 @@ The site will load analytics only after a visitor chooses **Allow analytics**. E
 Check these items on desktop and mobile:
 
 - Home page opens at `https://clickbaitpaysus.com`
+- The landing headline reads `EARN WHILE YOU ADVERTISE` without clipping or awkward wrapping
+- Advertiser and daily-viewing messages appear clearly at the selected landing, dashboard, lesson, action, and completion points
 - Logo and favicon appear
 - The first launch opens in dark mode and the optional light-theme switch works
 - The main landing-page button opens the learning dashboard
 - The desktop sidebar and mobile dashboard menu guide the full learning journey
 - Dashboard navigation remains comfortably readable and touch-friendly on phones
 - Circuit-board nodes pulse softly on the landing page, while reduced-motion preferences are respected
+- Every video remains still until Play is pressed
+- Every video opens in the shared responsive modal, closes by button, backdrop, or Escape, and closes automatically when playback finishes
+- The learning path contains eleven lessons, including Platform Sustainability as Lesson 4
+- Lesson 2 presents the full five-step flow through withdrawal
+- The scroll-to-top control appears after the visitor moves down a page
 - Learning progress updates after a correct quiz answer
 - Incorrect quiz answers show the correction and retry button
 - The next guided lesson unlocks after the correct answer
@@ -123,8 +130,13 @@ Check these items on desktop and mobile:
 - `Create Free Account` opens `https://clickbaitpays.me/join.php?ref=mtgtraffic`
 - `Official Login` opens `https://clickbaitpays.me/login.php`
 - Affiliate routes are visibly disclosed and use sponsored-link semantics
-- Social sharing uses the approved preview image
+- Every indexable URL displays its own matching title, description, and social-preview image
+- Social images load from absolute `https://clickbaitpaysus.com/assets/social/...` URLs after deployment
+- `404.html` is excluded from indexing and from the sitemap
 - Video 4 loads from the supplied `5SLBAgVdtXw` YouTube presentation link
+- The FAQ video loads from `8rftor87kKQ`
+- The landing page includes the income-and-compensation video and dashboard walkthrough in their approved sections
+- Resources includes the featured ClickBaitPays Presentation Slides link
 - HTTPS is active
 
 ## 9. Important Publishing Safety
@@ -137,4 +149,22 @@ Check these items on desktop and mobile:
 
 ## 10. Updating the Website
 
-For a small text correction, edit the relevant HTML file and commit the change. For a site-wide change, use the supplied source-and-builder package, regenerate the website, run its verification, and upload the refreshed output while preserving `CNAME`.
+Use the supplied source-and-builder package for content changes. Update the page content in `build-static.mjs`, review the matching search and social intent in `page-metadata.mjs`, regenerate the website with `node build-static.mjs`, run `node verify-static.mjs`, and upload the complete refreshed `dist` output while preserving `CNAME`.
+
+Do not routinely hand-edit generated HTML. Search metadata, social previews, schema, internal links, and sitemap inclusion are treated as a synchronized system. The verifier detects output pages changed after the metadata manifest was built.
+
+See `SEO_SOCIAL_SYSTEM.md` in the source package for the complete page-by-page intent map, maintenance rule, and validation coverage.
+
+## 11. Voice and Source Check
+
+- Keep the dashboard and About page clear that MTG is an active member and affiliate who uses ClickBaitPays every day.
+- Teach platform concepts directly. Do not reintroduce repetitive report-style phrases such as `according to the supplied materials` or `based on the source`.
+- Keep the compact `Keep this lesson current` links and Resources page available so visitors can check changing platform information whenever they choose.
+- Preserve the independent affiliate disclosure, earnings disclaimer, and risk disclaimer.
+
+## 12. Social and Resource Link Check
+
+- Confirm the WhatsApp community buttons use the current `G1LOlTWae3OKCF3mVcD6J0` invite.
+- Confirm the Videos page, Contact page, and footers link to `https://www.youtube.com/@clickbaitpaysus`.
+- Confirm Growth Roadmap and Sustainability Story both open their supplied Google Drive resources.
+- Keep these placements restrained. Do not add floating social controls or duplicate buttons inside lesson content.
