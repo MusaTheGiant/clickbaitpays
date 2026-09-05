@@ -89,17 +89,11 @@ After GitHub confirms the DNS:
 
 GitHub automatically requests the certificate after the DNS configuration passes. See GitHub's [HTTPS guidance](https://docs.github.com/en/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https).
 
-## 7. Add Google Analytics Later
+## 7. Privacy and Analytics
 
-Analytics is intentionally inactive.
+The website does not load Google Analytics or display an analytics-consent pop-up. Theme preference and lesson progress remain stored only in the visitor's browser so the learning experience can remember their choices on that device.
 
-To activate it after you have a real GA4 property:
-
-1. Open `assets/config.js`.
-2. Replace `G-XXXXXXXXXX` with the real GA4 Measurement ID.
-3. Save and upload the updated file to GitHub.
-
-The site will load analytics only after a visitor chooses **Allow analytics**. Essential theme and learning-progress features do not require analytics permission.
+If analytics is added in the future, review the privacy notice and implement an appropriate consent experience before publishing the tracking code.
 
 ## 8. Test After Publishing
 
@@ -109,6 +103,7 @@ Check these items on desktop and mobile:
 - The landing headline reads `EARN WHILE YOU ADVERTISE` without clipping or awkward wrapping
 - Advertiser and daily-viewing messages appear clearly at the selected landing, dashboard, lesson, action, and completion points
 - Logo and favicon appear
+- No privacy or analytics choice interrupts a first-time visit
 - The first launch opens in dark mode and the optional light-theme switch works
 - The main landing-page button opens the learning dashboard
 - The desktop sidebar and mobile dashboard menu guide the full learning journey

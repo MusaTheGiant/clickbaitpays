@@ -444,10 +444,6 @@ tbody tr:hover { background: var(--surface-2); }
 .scroll-top:hover { border-color: var(--pink); color: #fff; }
 .scroll-top span { font-size: 1.25rem; line-height: 1; }
 
-.consent-banner { position: fixed; left: 1rem; right: 1rem; bottom: 1rem; z-index: 120; max-width: 900px; margin-inline: auto; display: flex; justify-content: space-between; gap: 1.5rem; padding: 1.15rem; border: 1px solid var(--border); border-radius: 18px; background: var(--surface-3); box-shadow: 0 18px 60px rgba(0,0,0,.4); }
-.consent-banner[hidden] { display: none; }
-.consent-banner strong { display: block; }.consent-banner p { margin: .2rem 0 0; color: var(--muted); font-size: .78rem; }
-.consent-banner > div:last-child { display: flex; align-items: center; gap: .6rem; }
 .toast { position: fixed; top: 110px; left: 50%; z-index: 200; max-width: min(520px, calc(100vw - 2rem)); padding: .9rem 1.2rem; border: 1px solid rgba(70,242,173,.5); border-radius: 999px; background: var(--surface-3); color: var(--text); box-shadow: 0 16px 48px rgba(0,0,0,.3); opacity: 0; pointer-events: none; transform: translate(-50%, -20px); transition: .3s ease; }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
 
@@ -507,9 +503,6 @@ tbody tr:hover { background: var(--surface-2); }
   .compare-callout > div { transform: rotate(90deg); }
   .glossary-grid { grid-template-columns: 1fr; }
   .action-staircase li { width: 100%; margin-left: 0 !important; grid-template-columns: 50px 1fr; }
-  .consent-banner { flex-direction: column; }
-  .consent-banner > div:last-child { align-items: stretch; flex-direction: column; }
-  .consent-banner .button { width: 100%; }
 }
 
 @media (max-width: 440px) {
@@ -530,7 +523,7 @@ tbody tr:hover { background: var(--surface-2); }
 }
 
 @media print {
-  .affiliate-strip, .site-header, .global-progress, .community-card, .site-footer, .floating-whatsapp, .consent-banner, .toast, .quiz-card { display: none !important; }
+  .affiliate-strip, .site-header, .global-progress, .community-card, .site-footer, .floating-whatsapp, .toast, .quiz-card { display: none !important; }
   body { background: #fff; color: #000; }
   main { width: 100%; }
   a { color: #000; }
@@ -548,7 +541,7 @@ html[data-theme="light"] .circuit-backdrop { opacity: .22; }
 .landing-header nav a { padding: .62rem .8rem; border-radius: 10px; color: var(--muted); font-size: .84rem; font-weight: 700; text-decoration: none; }
 .landing-header nav a:hover { background: rgba(255, 255, 255, .05); color: var(--text); }
 .landing-page .hero-v2 { width: min(calc(100% - 3rem), 1320px); min-height: calc(100vh - 98px); grid-template-columns: 1.15fr .85fr; gap: clamp(3rem, 7vw, 7rem); padding-block: clamp(5rem, 10vh, 8rem); }
-.hero-v2 .hero-copy { position: relative; }
+.hero-v2 .hero-copy { position: relative; min-width: 0; max-width: 100%; }
 .hero-v2 h1 { display: grid; margin-bottom: 1.6rem; font-size: clamp(4rem, 8.7vw, 8.3rem); line-height: .84; letter-spacing: -.075em; text-transform: uppercase; text-shadow: 0 0 36px rgba(177, 139, 255, .15); }
 .hero-v2 h1 .hero-white { color: #fff; }
 .hero-v2 h1 .hero-gradient { margin-top: .22em; background: linear-gradient(92deg, #00e5ff 0%, #37c9ff 37%, #c052ff 67%, #ff00df 100%); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 0 18px rgba(0, 229, 255, .16)); }
@@ -858,6 +851,8 @@ h1, h2, h3, p, a, strong { overflow-wrap: break-word; }
   .landing-header .whatsapp { font-size: 0; }
   .landing-header .whatsapp::after { content: "WhatsApp"; font-size: .72rem; }
   .landing-page .hero-v2 { width: calc(100% - 2rem); min-height: auto; padding-block: 5rem; }
+  .hero-v2 .button-row { width: 100%; max-width: 640px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; }
+  .hero-v2 .button-row > .button { width: 100%; min-width: 0; max-width: 100%; padding-inline: .9rem; line-height: 1.35; text-align: center; white-space: normal; overflow-wrap: anywhere; }
   .intro-video-grid { grid-template-columns: 1fr; }
   .hero-v2 h1 { font-size: clamp(3.35rem, 18vw, 6rem); }
   .command-features { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -894,7 +889,7 @@ h1, h2, h3, p, a, strong { overflow-wrap: break-word; }
   .landing-header .whatsapp { min-height: 42px; padding-inline: .7rem; }
   .landing-page .hero-v2 { padding-block: 4rem; }
   .hero-v2 h1 { font-size: clamp(3rem, 17vw, 5rem); line-height: .88; }
-  .hero-v2 .button-row { display: grid; }
+  .hero-v2 .button-row { grid-template-columns: minmax(0, 1fr); }
   .hero-v2 .button { width: 100%; min-height: 58px; padding: .9rem 1rem; line-height: 1.35; text-align: center; white-space: normal; }
   .hero-command-card { padding: 1rem; border-radius: 20px; }
   .landing-video-card { border-radius: 19px; }
@@ -946,6 +941,7 @@ h1, h2, h3, p, a, strong { overflow-wrap: break-word; }
   .landing-header .icon-button { display: none; }
   .landing-header .whatsapp { margin-left: auto; }
   .hero-v2 h1 { font-size: clamp(2.75rem, 16vw, 4rem); }
+  .hero-v2 .button-row > .button { padding-inline: .75rem; font-size: clamp(.88rem, 4.3vw, 1rem); }
   .command-head { align-items: flex-start; flex-direction: column; }
   .command-features { grid-template-columns: 1fr; }
   .command-features span { min-height: 62px; }

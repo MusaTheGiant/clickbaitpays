@@ -3,7 +3,6 @@
 
   const progressKey = "cbp-completed-lessons-v1";
   const themeKey = "cbp-theme-v2";
-  const consentKey = "cbp-analytics-consent-v1";
   const totalLessons = 11;
   const lessonPath = [
     [1, "what-is-clickbaitpays.html", "What Is ClickBaitPays?", "Understand the advertising-service model, who the platform connects, and the value it is designed to create."],
@@ -333,33 +332,6 @@
     });
     const empty = document.querySelector("[data-glossary-empty]");
     if (empty) empty.hidden = visible > 0;
-  });
-
-  const loadAnalytics = () => {
-    const id = window.CBP_CONFIG?.GA_MEASUREMENT_ID || "";
-    if (!/^G-[A-Z0-9]+$/.test(id) || id === "G-XXXXXXXXXX" || document.querySelector(`script[data-ga-id="${id}"]`)) return;
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function gtag() { window.dataLayer.push(arguments); };
-    window.gtag("js", new Date());
-    window.gtag("config", id, { anonymize_ip: true });
-    const script = document.createElement("script");
-    script.async = true;
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(id)}`;
-    script.dataset.gaId = id;
-    document.head.append(script);
-  };
-
-  const consentBanner = document.querySelector("[data-consent-banner]");
-  const consent = localStorage.getItem(consentKey);
-  if (!consent && consentBanner) consentBanner.hidden = false;
-  if (consent === "analytics") loadAnalytics();
-  document.querySelectorAll("[data-consent]").forEach(button => {
-    button.addEventListener("click", () => {
-      const choice = button.dataset.consent;
-      localStorage.setItem(consentKey, choice);
-      if (consentBanner) consentBanner.hidden = true;
-      if (choice === "analytics") loadAnalytics();
-    });
   });
 
   updateProgress();

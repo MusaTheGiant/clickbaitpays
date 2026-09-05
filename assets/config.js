@@ -1,5 +1,4 @@
 window.CBP_CONFIG = Object.freeze({
-  GA_MEASUREMENT_ID: "G-XXXXXXXXXX",
   SITE_URL: "https://clickbaitpaysus.com",
   OFFICIAL_WEBSITE_URL: "https://clickbaitpays.me/?ref=mtgtraffic",
   REGISTRATION_URL: "https://clickbaitpays.me/join.php?ref=mtgtraffic",

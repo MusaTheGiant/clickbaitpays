@@ -38,7 +38,7 @@ The existing website design, lesson order, interactions, navigation, responsive 
 | `/earnings-disclaimer.html` | Understand variable results and no guarantees | Earnings disclaimer |
 | `/risk-disclaimer.html` | Understand participation and crypto risks | Risk disclaimer |
 | `/affiliate-disclosure.html` | Understand MTG's affiliate relationship | Affiliate disclosure |
-| `/privacy.html` | Understand device-local data and consent | Privacy at ClickBaitPaysUs |
+| `/privacy.html` | Understand device-local progress and the minimal data footprint | Privacy at ClickBaitPaysUs |
 | `/404.html` | Recover from an invalid URL | Noindex, no social preview |
 
 ## Metadata and Structured Data
@@ -109,4 +109,3 @@ The build also fails when:
 - Existing functional, brand, compliance, video, navigation, and responsive safeguards still pass
 
 Absolute social image URLs will become publicly fetchable as soon as the refreshed static package is deployed to `clickbaitpaysus.com`. Social platforms may cache an older preview, so use their refresh or re-scrape tools after publishing when an old card remains visible.
-
