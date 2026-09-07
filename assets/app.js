@@ -251,6 +251,27 @@
     }
   });
 
+  const faqItems = [...document.querySelectorAll(".faq-list details")];
+  const syncFaqState = () => {
+    faqItems.forEach(item => {
+      const summary = item.querySelector("summary");
+      const icon = summary?.querySelector("i");
+      summary?.setAttribute("aria-expanded", String(item.open));
+      if (icon) icon.textContent = item.open ? "✓" : "+";
+    });
+  };
+  faqItems.forEach(item => {
+    item.addEventListener("toggle", () => {
+      if (item.open) {
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item) otherItem.open = false;
+        });
+      }
+      syncFaqState();
+    });
+  });
+  syncFaqState();
+
   const scrollTopButton = document.querySelector("[data-scroll-top]");
   const updateScrollTop = () => scrollTopButton?.classList.toggle("is-visible", window.scrollY > 520);
   updateScrollTop();
