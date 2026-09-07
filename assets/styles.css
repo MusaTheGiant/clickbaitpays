@@ -118,6 +118,7 @@ main { min-height: 60vh; }
 .breadcrumbs a { color: var(--muted); }
 
 .button { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: .45rem; padding: .72rem 1.15rem; border: 1px solid transparent; border-radius: 12px; font-weight: 750; text-decoration: none; cursor: pointer; transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
+.button, a, button { font-family: "Orbitron", "Segoe UI", sans-serif; }
 .button:hover { transform: translateY(-2px); }
 .button.primary { background: linear-gradient(120deg, var(--cyan), var(--aqua)); color: #041014; box-shadow: var(--shadow-cyan); }
 .button.secondary { border-color: var(--border); background: var(--surface); color: var(--text); }
@@ -668,6 +669,9 @@ body.video-modal-open { overflow: hidden; }
 .sidebar-progress b { font-size: .9rem; }
 .dashboard-sidebar > .progress-track { margin: .8rem 0 .6rem; }
 .sidebar-motivation { margin: 0 0 1.1rem; color: var(--muted); font-size: .78rem; line-height: 1.55; }
+.sidebar-reset-button { width: 100%; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; gap: .45rem; margin: 0 0 .25rem; padding: .55rem .75rem; border: 1px solid var(--border-pink); border-radius: 10px; background: transparent; color: var(--muted); font-size: .76rem; font-weight: 700; cursor: pointer; transition: border-color .2s ease, background .2s ease, color .2s ease; }
+.sidebar-reset-button:hover { border-color: var(--pink); background: rgba(255, 0, 223, .07); color: var(--text); }
+.sidebar-reset-button span { color: var(--pink); font-size: 1rem; }
 .dashboard-nav { display: grid; gap: .2rem; }
 .nav-label { margin: 1.1rem .55rem .4rem; color: #938ca0; font-size: .75rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .dashboard-nav-link { display: grid; grid-template-columns: 32px 1fr; align-items: center; gap: .55rem; min-height: 48px; padding: .58rem .7rem; border: 1px solid transparent; border-radius: 11px; color: #c2bdcc; font-size: .92rem; line-height: 1.35; text-decoration: none; }
@@ -782,7 +786,7 @@ h1, h2, h3, p, a, strong { overflow-wrap: break-word; }
 .landing-page .section, .dashboard-page .dashboard-section { content-visibility: auto; contain-intrinsic-size: 1px 620px; }
 .video-frame iframe { display: block; }
 
-/* Heading-family typography for non-button navigation and text links. */
+/* Heading-family typography for navigation and linked text. */
 .site-nav a:not(.button),
 .dashboard-nav-link:not(.platform-link),
 .course-nav-link,
@@ -797,28 +801,12 @@ h1, h2, h3, p, a, strong { overflow-wrap: break-word; }
   font-family: "Orbitron", "Segoe UI", sans-serif;
 }
 
-.reviewed-date { color: var(--muted); font-size: .82rem; }
-.tutorial-sequence { width: min(calc(100% - 2.5rem), var(--content)); display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: .55rem; margin: -2rem auto 0; padding: 1rem; border: 1px solid var(--border); border-radius: var(--radius-sm); background: color-mix(in srgb, var(--surface) 92%, transparent); box-shadow: var(--shadow-cyan); }
-.tutorial-sequence a { min-width: 0; padding: .75rem .55rem; border-radius: 10px; color: var(--muted); font-family: "Orbitron", "Segoe UI", sans-serif; font-size: .72rem; font-weight: 700; text-align: center; text-decoration: none; }
-.tutorial-sequence a:hover, .tutorial-sequence a:focus-visible { background: var(--surface-2); color: var(--text); }
-.tutorial-sequence span { display: block; margin-bottom: .2rem; color: var(--cyan); }
-.tutorial-grid { display: grid; gap: 1.25rem; }
-.tutorial-card { display: grid; grid-template-columns: minmax(260px, .78fr) minmax(0, 1.22fr); gap: clamp(1.25rem, 3vw, 2.5rem); align-items: stretch; padding: clamp(1rem, 2vw, 1.6rem); border: 1px solid var(--border); border-radius: var(--radius); background: linear-gradient(145deg, color-mix(in srgb, var(--surface) 94%, transparent), color-mix(in srgb, var(--surface-2) 88%, transparent)); box-shadow: var(--shadow-cyan); }
-.tutorial-placeholder { min-height: 280px; display: grid; grid-template-rows: auto 1fr auto; place-items: center; padding: 1.2rem; overflow: hidden; border: 1px solid var(--border-pink); border-radius: 18px; background: radial-gradient(circle at center, rgba(0,229,255,.13), transparent 48%), linear-gradient(135deg, rgba(0,229,255,.08), rgba(255,0,255,.12)); text-align: center; }
-.tutorial-placeholder > span { justify-self: stretch; padding: .45rem .7rem; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); color: var(--green); font-family: "Orbitron", sans-serif; font-size: .68rem; font-weight: 800; letter-spacing: .08em; }
-.tutorial-placeholder > strong { color: var(--cyan); font-family: "Orbitron", sans-serif; font-size: clamp(4rem, 8vw, 7rem); line-height: 1; text-shadow: 0 0 28px rgba(0,229,255,.28); }
-.tutorial-placeholder > small { color: var(--muted); font-family: "Orbitron", sans-serif; font-weight: 700; letter-spacing: .1em; }
-.tutorial-copy { align-self: center; }
-.tutorial-copy h2 { font-size: clamp(1.4rem, 2.5vw, 2.15rem); }
-.tutorial-copy > p:not(.eyebrow), .tutorial-copy li { color: var(--muted); }
-.tutorial-copy ul { display: grid; gap: .45rem; padding-left: 1.15rem; }
-.tutorial-copy dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
-.tutorial-copy dl div { padding: .85rem; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
-.tutorial-copy dt { color: var(--muted); font-size: .75rem; }
-.tutorial-copy dd { margin: .2rem 0 0; color: var(--text); font-family: "Orbitron", sans-serif; font-weight: 700; }
-.tutorial-related { margin-top: 1.3rem; padding-top: .85rem; border-top: 1px solid var(--border); font-size: .86rem; }
-.tutorial-source-note { width: min(calc(100% - 2.5rem), var(--content)); margin: 0 auto clamp(4rem, 8vw, 7rem); padding: 1.25rem; border: 1px solid var(--border-pink); border-radius: var(--radius-sm); background: var(--surface); }
-.tutorial-source-note p { margin: .45rem 0 0; color: var(--muted); }
+.tutorial-video-shell { position: relative; width: 100%; display: block; overflow: hidden; border-radius: 23px; background: #070414; color: var(--text); text-align: left; }
+.tutorial-thumbnail { display: grid; place-items: center; isolation: isolate; background: radial-gradient(circle at 50% 45%, rgba(0, 229, 255, .19), transparent 29%), linear-gradient(135deg, #13052f, #050817 58%, #210525); }
+.tutorial-thumbnail::before { content: ""; position: absolute; inset: 12% 7%; z-index: -1; border: 1px solid rgba(0, 229, 255, .16); border-radius: 18px; box-shadow: inset 0 0 34px rgba(255, 0, 223, .07); }
+.tutorial-thumbnail-number { position: relative; z-index: 1; color: var(--cyan); font-size: clamp(4.5rem, 10vw, 7.5rem); font-weight: 800; line-height: 1; text-shadow: 0 0 32px rgba(0, 229, 255, .32); }
+.tutorial-coming-soon { position: absolute; left: 1rem; bottom: 1rem; z-index: 2; padding: .35rem .65rem; border: 1px solid rgba(70, 242, 173, .42); border-radius: 999px; background: rgba(4, 3, 15, .84); color: var(--green); font-size: .7rem; font-weight: 800; letter-spacing: .11em; backdrop-filter: blur(12px); }
+.tutorial-video-shell .video-card-copy small { color: var(--green); }
 .tutorial-note { margin-top: 1.25rem; padding: 1rem 1.1rem; border-left: 3px solid var(--cyan); background: var(--surface); color: var(--muted); }
 .visibility-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-block: 1.5rem; }
 .visibility-grid article { padding: 1.15rem; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--surface); }
@@ -930,9 +918,6 @@ h1, h2, h3, p, a, strong { overflow-wrap: break-word; }
   .tool-grid { grid-template-columns: 1fr; }
   .platform-access-grid { grid-template-columns: 1fr; }
   .dashboard-footer { align-items: flex-start; flex-direction: column; }
-  .tutorial-sequence { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: -1rem; }
-  .tutorial-card { grid-template-columns: 1fr; }
-  .tutorial-placeholder { min-height: 220px; }
   .visibility-grid { grid-template-columns: 1fr; }
 }
 
@@ -947,7 +932,7 @@ h1, h2, h3, p, a, strong { overflow-wrap: break-word; }
   .hero-v2 .button-row { grid-template-columns: minmax(0, 1fr); }
   .hero-v2 .button { width: 100%; min-height: 58px; padding: .9rem 1rem; line-height: 1.35; text-align: center; white-space: normal; }
   .landing-video-card { border-radius: 19px; }
-  .landing-video-card button { border-radius: 18px; }
+  .landing-video-card button, .tutorial-video-shell { border-radius: 18px; }
   .video-play { width: 66px; height: 66px; }
   .video-play span { font-size: 1.4rem; }
   .video-card-copy { padding: .9rem 1rem 1rem; }
@@ -986,8 +971,6 @@ h1, h2, h3, p, a, strong { overflow-wrap: break-word; }
   .dashboard-footer nav { flex-wrap: wrap; }
   .progress-controls { align-items: stretch; flex-direction: column; }
   .progress-controls .button { width: 100%; }
-  .tutorial-copy dl { grid-template-columns: 1fr; }
-  .tutorial-sequence, .tutorial-source-note { width: calc(100% - 1.25rem); }
 }
 
 @media (max-width: 380px) {

@@ -63,7 +63,13 @@
     });
 
     const currentLesson = Number(document.body.dataset.lessonNumber || 0);
-    if (currentLesson && completed.has(currentLesson)) unlockNext(document.querySelector("[data-next-lesson]"));
+    const currentNextLesson = document.querySelector("[data-next-lesson]");
+    if (currentLesson && completed.has(currentLesson)) {
+      unlockNext(currentNextLesson);
+    } else if (currentLesson && currentNextLesson) {
+      currentNextLesson.classList.add("locked");
+      currentNextLesson.setAttribute("aria-disabled", "true");
+    }
 
     const nextLesson = lessonPath.find(([number]) => !completed.has(number));
     const nextTarget = nextLesson || [12, "completion.html", "Journey Completion", "Review what you learned, celebrate your commitment, and choose a responsible next step."];
@@ -83,10 +89,16 @@
 
     const completionHeading = document.querySelector("[data-completion-heading]");
     const completionCopy = document.querySelector("[data-completion-copy]");
-    if (completionHeading && completionCopy && count === totalLessons) {
-      completionHeading.textContent = "You did it. You understand the bigger picture.";
-      completionCopy.textContent = "You worked through all eleven lessons, tested your understanding, corrected mistakes, and reached the end with more clarity. Not everyone takes time to learn before acting. You did.";
-      document.body.classList.add("journey-complete");
+    if (completionHeading && completionCopy) {
+      if (count === totalLessons) {
+        completionHeading.textContent = "You did it. You understand the bigger picture.";
+        completionCopy.textContent = "You worked through all eleven lessons, tested your understanding, corrected mistakes, and reached the end with more clarity. Not everyone takes time to learn before acting. You did.";
+        document.body.classList.add("journey-complete");
+      } else {
+        completionHeading.textContent = "Your progress is building.";
+        completionCopy.textContent = "Complete all eleven lesson quizzes on this device to unlock your full celebration.";
+        document.body.classList.remove("journey-complete");
+      }
     }
   };
 
@@ -334,12 +346,28 @@
     });
   });
 
-  document.querySelector("[data-reset-progress]")?.addEventListener("click", () => {
-    const confirmed = window.confirm("Reset all completed lesson quizzes on this device?");
-    if (!confirmed) return;
-    localStorage.removeItem(progressKey);
-    updateProgress();
-    showToast("Your learning progress has been reset on this device.");
+  document.querySelectorAll("[data-reset-progress]").forEach(button => {
+    button.addEventListener("click", () => {
+      const confirmed = window.confirm("Reset the entire course and start again? All completed lesson quizzes saved in this browser will be cleared.");
+      if (!confirmed) return;
+      localStorage.removeItem(progressKey);
+      document.querySelectorAll("[data-quiz]").forEach(quiz => {
+        quiz.querySelector("form")?.reset();
+        const submit = quiz.querySelector(".quiz-submit");
+        const feedback = quiz.querySelector(".quiz-feedback");
+        if (submit) submit.disabled = true;
+        if (feedback) feedback.innerHTML = "";
+        quiz.classList.remove("is-correct", "is-incorrect");
+      });
+      document.querySelectorAll(".flashcard").forEach(card => {
+        card.setAttribute("aria-pressed", "false");
+        card.classList.remove("is-flipped");
+      });
+      updateProgress();
+      closeDashboardMenu();
+      showToast("Course reset complete. Returning you to the beginning.");
+      window.setTimeout(() => { window.location.href = "start-here.html"; }, 650);
+    });
   });
 
   const glossarySearch = document.querySelector("[data-glossary-search]");
