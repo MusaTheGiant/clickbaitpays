@@ -1,1 +1,1 @@
-Page-specific 1200 x 630 social preview images. Generated from page-metadata.mjs. Edit metadata there and rebuild the site to keep page copy and previews synchronized.
+Page-specific 1200 x 630 social preview images. Keep each image synchronized with its page head and the corresponding entry in assets/page-metadata.json. Run node tests/site-integration.test.js before publishing.

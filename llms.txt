@@ -1,0 +1,31 @@
+# ClickBaitPaysUs Learning
+
+> Independent, plain-English ClickBaitPays education created by MTG. Learn how campaign levels, advertising, daily ad-viewing activity, campaign timing, crypto deposits and withdrawals, account rules and risk fit together before deciding whether to participate.
+
+Canonical website: https://clickbaitpaysus.com/
+Sitemap: https://clickbaitpaysus.com/sitemap.xml
+Creator: MTG
+Language: English
+
+## Primary pages
+
+- [Home](https://clickbaitpaysus.com/): Clear introduction to the ClickBaitPays advertising and viewer model.
+- [Learning Dashboard](https://clickbaitpaysus.com/dashboard.html): Complete 11-lesson learning workspace.
+- [Start Here](https://clickbaitpaysus.com/start-here.html): Guided learning path for beginners.
+- [Campaign Levels 1 to 7](https://clickbaitpaysus.com/campaign-levels.html): Campaign costs, activation fees, daily ads, completion values and listed member amounts.
+- [Daily Clicks and Earnings Lifecycle](https://clickbaitpaysus.com/daily-clicks-earnings.html): Daily activity, campaign completion, holding period and Available Balance.
+- [Staggered Campaign Strategy](https://clickbaitpaysus.com/staggered-campaign-strategy.html): Simultaneous and seven-day staggered campaign timing.
+- [Profit Calculator](https://clickbaitpaysus.com/profit-calculator.html): Plan up to three campaigns total and estimate capital, returns, profit, ROI and dates.
+- [Account Rules and Safety](https://clickbaitpaysus.com/account-rules-safety.html): Account limits, manual participation and security guidance.
+- [Frequently Asked Questions](https://clickbaitpaysus.com/faq.html): Clear answers about campaigns, earnings, advertising, withdrawals and risk.
+- [Tutorial Videos](https://clickbaitpaysus.com/tutorials.html): Step-by-step platform walkthroughs.
+- [Explainer Videos](https://clickbaitpaysus.com/videos.html): Platform, campaign and compensation explanations.
+- [Resources](https://clickbaitpaysus.com/resources.html): Guides, slides and supporting learning material.
+
+## Important accuracy notes
+
+- The website is an independent educational resource and is not the official ClickBaitPays website.
+- Campaign and calculator figures are estimates based on the figures displayed on the website.
+- The current rule used by the calculator is a maximum of three active campaigns total per account, regardless of level combination.
+- Earnings, profit and withdrawals are not guaranteed.
+- Visitors should verify current platform terms before participating.

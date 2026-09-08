@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "sourceOfTruth": "page-metadata.mjs",
-  "synchronizationRule": "A material page change must update its page-specific search and social intent in page-metadata.mjs. The build and verifier enforce complete one-to-one coverage.",
+  "sourceOfTruth": "Page HTML synchronized with this metadata manifest",
+  "synchronizationRule": "A material page change must update its page-specific search and social intent in the page HTML and this manifest. The integration tests enforce complete one-to-one coverage.",
   "lastReviewed": "2026-09-08",
   "pages": {
     "index.html": {
@@ -297,9 +297,9 @@
       "description": "Use the ClickBaitPays Profit Calculator to plan up to three simultaneous or staggered campaigns and estimate capital, returns, profit, ROI and dates.",
       "socialTitle": "ClickBaitPays Profit Calculator",
       "socialDescription": "Plan up to three simultaneous or staggered campaigns and estimate capital, returns, profit, ROI and dates.",
-      "socialImage": null,
-      "socialImageAlt": null,
-      "htmlSha256": "8d490b228a3d9cc1c2b062d69550f7a50544bed9d6c08b41edf5b930675bd336"
+      "socialImage": "assets/social/profit-calculator.png",
+      "socialImageAlt": "ClickBaitPays Profit Calculator for planning campaign returns, profit, ROI and dates",
+      "htmlSha256": "8888a5c508b51f5a76c47df699cab37ffc85e07e04838c7c9dbe4220fb586795"
     },
     "404.html": {
       "canonical": "https://clickbaitpaysus.com/404.html",
@@ -316,12 +316,12 @@
       "canonical": "https://clickbaitpaysus.com/tutorials.html",
       "indexable": true,
       "seoTitle": "ClickBaitPays Tutorial Videos | Seven Walkthroughs",
-      "description": "Follow seven beginner-friendly ClickBaitPays tutorial videos covering registration, USDT deposits, Ad Campaigns, viewing ads, withdrawals, the dashboard, and Login Ads.",
+      "description": "Watch seven beginner-friendly ClickBaitPays tutorials on registration, USDT deposits, campaigns, daily ads, withdrawals, dashboard tools and Login Ads.",
       "socialTitle": "Seven ClickBaitPays Tutorial Videos",
-      "socialDescription": "Seven organised tutorial videos covering registration, deposits, campaigns, daily ads, withdrawals, the dashboard, and Login Ads.",
-      "socialImage": "assets/social/videos.png",
+      "socialDescription": "Follow seven practical ClickBaitPays walkthroughs covering registration, deposits, campaigns, daily ads, withdrawals, the dashboard and Login Ads.",
+      "socialImage": "assets/social/tutorials.png",
       "socialImageAlt": "Seven beginner-friendly ClickBaitPays tutorial walkthroughs",
-      "htmlSha256": "a636ade467bd5fd2861ef881e2038fb6cebc918969d91028f7dd8c633d5a0c00"
+      "htmlSha256": "9896477aba2a0ec145e674bddc2dbd7a5cc0ca6d26b9ff180ce5c239db0056cc"
     }
   }
 }
