@@ -45,7 +45,7 @@ dashboardFiles.forEach(name => {
   assert.ok(calculator > explainer, `${name} places Profit Calculator after Explainer Videos`);
   const between = html.slice(explainer, calculator);
   assert.equal((between.match(/dashboard-nav-link/g) || []).length, 1, `${name} places Profit Calculator immediately after Explainer Videos`);
-  assert.equal((html.match(/href="profit-calculator\.html"/g) || []).length, 1, `${name} has one calculator navigation link`);
+  assert.equal((html.match(/class="dashboard-nav-link(?: active)?" href="profit-calculator\.html"/g) || []).length, 1, `${name} has one calculator navigation link`);
 });
 
 const calculatorHtml = read("profit-calculator.html");
@@ -62,6 +62,18 @@ assert.doesNotMatch(calculatorHtml, /<button(?![^>]*\stype="(?:button|submit)")[
 const indexHtml = read("index.html");
 assert.equal((indexHtml.match(/href="profit-calculator\.html"/g) || []).length, 1, "Home has one calculator CTA");
 assert.match(indexHtml, /class="button primary" href="profit-calculator\.html">Calculate Campaign Earnings<\/a>/, "Home CTA uses the existing primary CTA design");
+
+const recommendedCtas = {
+  "campaign-levels.html": "Calculate Campaign Earnings",
+  "staggered-campaign-strategy.html": "Plan a Staggered Schedule",
+  "action-plan.html": "Build Your Campaign Plan"
+};
+Object.entries(recommendedCtas).forEach(([name, label]) => {
+  const html = read(name);
+  assert.equal((html.match(/data-calculator-cta/g) || []).length, 1, `${name} has one contextual calculator CTA`);
+  assert.match(html, new RegExp(`class="button primary" href="profit-calculator\\.html" data-calculator-cta>${label}<\\/a>`), `${name} calculator CTA uses the existing primary design and correct wording`);
+});
+assert.equal(htmlFiles.reduce((total, name) => total + (read(name).match(/data-calculator-cta/g) || []).length, 0), 3, "only the three recommended lesson pages have contextual calculator CTAs");
 
 const allLocalReferences = [];
 htmlFiles.forEach(name => {
