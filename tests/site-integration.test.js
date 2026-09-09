@@ -72,6 +72,9 @@ for (const id of ["quick-level", "quick-count", "quick-purchase-status", "quick-
 assert.doesNotMatch(calculatorHtml, /<button(?![^>]*\stype="(?:button|submit)")[^>]*>/, "calculator buttons have explicit types");
 
 const indexHtml = read("index.html");
+assert.match(indexHtml, /Join thousands of members earning real USDT by completing daily ad views\./, "Home hero explains that members earn real USDT");
+assert.match(indexHtml, /Real Ads\. Real Viewers\. Real USDT\./, "Home hero includes the new proof statement");
+assert.doesNotMatch(indexHtml, /Join thousands of members earning rewards by completing daily ad views\./, "Home hero no longer uses the old rewards wording");
 assert.equal((indexHtml.match(/href="profit-calculator\.html"/g) || []).length, 1, "Home has one calculator CTA");
 assert.match(indexHtml, /class="button primary" href="profit-calculator\.html">Calculate Campaign Earnings<\/a>/, "Home CTA uses the existing primary CTA design");
 
