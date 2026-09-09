@@ -864,6 +864,15 @@ h1, h2, h3, p, a, strong { overflow-wrap: break-word; }
   .arrow-five { animation-delay: 1s; }
 }
 
+/* Mobile browser chrome changes the visual viewport while scrolling. Keep the
+   fixed circuit background stable and remove its viewport-edge horizon lines
+   on smaller or touch-based devices so they cannot jump during that resize. */
+@media (max-width: 1180px), (hover: none) and (pointer: coarse) {
+  .landing-page .circuit-backdrop { height: 100svh; }
+  .landing-page .circuit-horizon,
+  .landing-page .circuit-horizon + path { display: none; }
+}
+
 @media (max-width: 1180px) {
   .landing-page .hero-v2 { grid-template-columns: 1fr; }
   .hero-cycle-stage { width: min(100%, 560px); justify-self: center; }

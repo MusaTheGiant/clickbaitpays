@@ -218,6 +218,7 @@ for (const character of structuralCss) {
   assert.ok(braceDepth >= 0, "CSS never closes a block before opening it");
 }
 assert.equal(braceDepth, 0, "CSS braces are balanced");
+assert.match(css, /@media \(max-width: 1180px\), \(hover: none\) and \(pointer: coarse\)[\s\S]*?\.landing-page \.circuit-backdrop \{ height: 100svh; \}[\s\S]*?\.landing-page \.circuit-horizon \+ path \{ display: none; \}/, "mobile and touch layouts stabilize the backdrop and hide the jumping horizon lines");
 assert.match(css, /@media \(max-width: 480px\)[\s\S]*?\.calculator-metrics \{ grid-template-columns: 1fr; \}/, "small phones receive a single-column results layout");
 assert.match(css, /\.calculator-main \{ width: calc\(100% - 1\.25rem\); \}/, "small-phone calculator width stays inside the viewport");
 assert.match(css, /@media \(prefers-reduced-motion: no-preference\)/, "animation remains opt-in when reduced motion is not requested");
