@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceOfTruth": "Page HTML synchronized with this metadata manifest",
   "synchronizationRule": "A material page change must update its page-specific search and social intent in the page HTML and this manifest. The integration tests enforce complete one-to-one coverage.",
-  "lastReviewed": "2026-09-08",
+  "lastReviewed": "2026-09-12",
   "pages": {
     "index.html": {
       "canonical": "https://clickbaitpaysus.com/",
@@ -46,7 +46,7 @@
       "socialDescription": "Understand the advertising model, the participants, and the value exchange.",
       "socialImage": "assets/social/lesson-01.png",
       "socialImageAlt": "Lesson 1 explaining what ClickBaitPays is",
-      "htmlSha256": "063bbf129b41951cae5e2be5e34fcd04d1135ade98d5c03d52c0781cc7ebfa7b"
+      "htmlSha256": "136b95b21cb8ff8218b5f14e5fbfc388ed9e987a22ba654bbad4f5c5527669fd"
     },
     "how-clickbaitpays-works.html": {
       "canonical": "https://clickbaitpaysus.com/how-clickbaitpays-works.html",
@@ -57,7 +57,7 @@
       "socialDescription": "Follow the five clear stages from account creation to your next move.",
       "socialImage": "assets/social/lesson-02.png",
       "socialImageAlt": "Lesson 2 showing how ClickBaitPays works in five steps",
-      "htmlSha256": "73c836987075a89553838ab58dbd3128566234fb93be909f28fab26f9b0ba17e"
+      "htmlSha256": "d8eadc93354319e70ff26a351f7491a495235b94a896a5cccc5da688aaabe6ad"
     },
     "advertiser-viewer-benefits.html": {
       "canonical": "https://clickbaitpaysus.com/advertiser-viewer-benefits.html",
@@ -68,7 +68,7 @@
       "socialDescription": "See how attention moves from campaign placement to participating viewers.",
       "socialImage": "assets/social/lesson-03.png",
       "socialImageAlt": "Lesson 3 about web traffic, advertisers, and viewers",
-      "htmlSha256": "7a48a971dac03b222190198ea04cb358cc10fff2f56b10892e2ee2967db2b718"
+      "htmlSha256": "4f7282a708f32a2c21f14d63da4b5c430ca666eb7578efd0198bd6699ab797df"
     },
     "platform-sustainability.html": {
       "canonical": "https://clickbaitpaysus.com/platform-sustainability.html",
@@ -90,7 +90,7 @@
       "socialDescription": "Compare campaign size, activation, daily activity, completion, and level-specific ad visibility before choosing a level.",
       "socialImage": "assets/social/lesson-05.png",
       "socialImageAlt": "Lesson 5 comparing ClickBaitPays campaign Levels 1 through 7",
-      "htmlSha256": "263391d2ef78e775374b970a2c4abd3df53ec1161e6c229b18e9dfa30cda1a0d"
+      "htmlSha256": "29eba5828a450c8df5c076a3486c0fbfe9a4f3982598ae17b8b75e40ea8f3817"
     },
     "daily-clicks-earnings.html": {
       "canonical": "https://clickbaitpaysus.com/daily-clicks-earnings.html",
@@ -101,7 +101,7 @@
       "socialDescription": "Connect daily activity, campaign completion, the hold period, and Available Balance.",
       "socialImage": "assets/social/lesson-06.png",
       "socialImageAlt": "Lesson 6 explaining daily clicks and the earnings lifecycle",
-      "htmlSha256": "70a7cd02eae74e99108c3832a63cfcc8c764b307a4112c55d39825871de319f3"
+      "htmlSha256": "a892cfaf62a8f365bea8cb90cd2b59309da02f8112a497309313c548c7d9b701"
     },
     "referral-rewards.html": {
       "canonical": "https://clickbaitpaysus.com/referral-rewards.html",
@@ -123,7 +123,7 @@
       "socialDescription": "Plan campaign timing around your budget, workload, and current platform rules.",
       "socialImage": "assets/social/lesson-08.png",
       "socialImageAlt": "Lesson 8 explaining a staggered ClickBaitPays campaign strategy",
-      "htmlSha256": "ad50467d0f2c48aea2b1cd5bbeddceeb4b61234d0003f8cc190614edd732d68d"
+      "htmlSha256": "f1531cb9fcc5c27b93bbd0d506316364189b110b1c2e6d7f3fcfe4d92dd62640"
     },
     "crypto-deposits-withdrawals.html": {
       "canonical": "https://clickbaitpaysus.com/crypto-deposits-withdrawals.html",
@@ -134,7 +134,7 @@
       "socialDescription": "Use careful asset, network, address, fee, and transaction checks every time.",
       "socialImage": "assets/social/lesson-09.png",
       "socialImageAlt": "Lesson 9 about safe crypto deposits and withdrawals",
-      "htmlSha256": "3a79a18cbbac4a1b8ca425d4348b916d38c49a34f574f7a23d74be19ca7ef72a"
+      "htmlSha256": "d8a3815791efaddf2d412e69eb8d9c7667ef163dffe43731bd25c5a5057499ef"
     },
     "back-office-walkthrough.html": {
       "canonical": "https://clickbaitpaysus.com/back-office-walkthrough.html",
@@ -156,7 +156,7 @@
       "socialDescription": "Protect your account with clear household, connection, activity, and security rules.",
       "socialImage": "assets/social/lesson-11.png",
       "socialImageAlt": "Lesson 11 ClickBaitPays account rules and safety guide",
-      "htmlSha256": "9fdff672b50ff1210223331c503b44a619cdf768043aef2520e8e34706a41ec9"
+      "htmlSha256": "27703b2ee55247bb6222c9480c5eeb102c9823d65aedd21a65a305ae403bdfea"
     },
     "glossary.html": {
       "canonical": "https://clickbaitpaysus.com/glossary.html",

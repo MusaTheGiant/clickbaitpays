@@ -49,6 +49,37 @@ DATA.levels.forEach(level => {
   assert.equal(level.memberCents, Math.round(level.completionCents * 0.9), `Level ${level.level} member amount is the rounded listed 90%`);
 });
 
+const lessonQuizzes = htmlFiles.flatMap(name => {
+  const quiz = read(name).match(/<section class="quiz-card"[\s\S]*?<\/form>/)?.[0];
+  if (!quiz) return [];
+  const lesson = Number(quiz.match(/data-lesson="(\d+)"/)?.[1]);
+  const answer = Number(quiz.match(/data-answer="([0-3])"/)?.[1]);
+  const correctLabel = decodeAttribute(quiz.match(/data-correct-label="([^"]+)"/)?.[1] || "");
+  const options = [...quiz.matchAll(/<label class="answer"><input type="radio" name="([^"]+)" value="([0-3])"><span>([A-D])<\/span><strong>(.*?)<\/strong><\/label>/g)].map(match => ({
+    name: match[1],
+    value: Number(match[2]),
+    letter: match[3],
+    text: decodeAttribute(match[4])
+  }));
+  assert.equal(options.length, 4, `${name} has four quiz options`);
+  assert.deepEqual(options.map(option => option.value), [0, 1, 2, 3], `${name} quiz values follow their displayed order`);
+  assert.deepEqual(options.map(option => option.letter), ["A", "B", "C", "D"], `${name} quiz letters follow their displayed order`);
+  assert.ok(options.every(option => option.name === `lesson-${lesson}`), `${name} quiz options share the correct radio group`);
+  assert.equal(options[answer].text, correctLabel, `${name} programmed answer matches its correct-answer feedback`);
+  return [{ name, lesson, correctLetter: options[answer].letter }];
+}).sort((a, b) => a.lesson - b.lesson);
+
+assert.equal(lessonQuizzes.length, 11, "all 11 lessons have a knowledge check");
+assert.deepEqual(lessonQuizzes.map(quiz => quiz.lesson), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], "knowledge checks cover Lessons 1 through 11 once each");
+const answerDistribution = lessonQuizzes.reduce((counts, quiz) => {
+  counts[quiz.correctLetter] += 1;
+  return counts;
+}, { A: 0, B: 0, C: 0, D: 0 });
+const distributionCounts = Object.values(answerDistribution);
+assert.ok(distributionCounts.every(count => count >= 2), "every answer position is used at least twice");
+assert.ok(Math.max(...distributionCounts) - Math.min(...distributionCounts) <= 1, "correct answers are balanced across A, B, C, and D");
+assert.ok(lessonQuizzes.every((quiz, index) => index === 0 || quiz.correctLetter !== lessonQuizzes[index - 1].correctLetter), "adjacent lessons do not repeat the same correct-answer position");
+
 dashboardFiles.forEach(name => {
   const html = read(name);
   const explainer = html.indexOf('href="videos.html"><span aria-hidden="true">▶</span><b>Explainer Videos</b>');
@@ -223,4 +254,4 @@ assert.match(css, /@media \(max-width: 480px\)[\s\S]*?\.calculator-metrics \{ gr
 assert.match(css, /\.calculator-main \{ width: calc\(100% - 1\.25rem\); \}/, "small-phone calculator width stays inside the viewport");
 assert.match(css, /@media \(prefers-reduced-motion: no-preference\)/, "animation remains opt-in when reduced motion is not requested");
 
-console.log(`Site integration tests passed: ${htmlFiles.length} HTML pages, ${dashboardFiles.length} dashboard menus, ${indexableEntries.length} complete SEO/social records, matching campaign tables, valid local paths, JSON-LD, sitemap images, CTA placement, and calculator metadata.`);
+console.log(`Site integration tests passed: ${htmlFiles.length} HTML pages, ${dashboardFiles.length} dashboard menus, ${lessonQuizzes.length} balanced knowledge checks, ${indexableEntries.length} complete SEO/social records, matching campaign tables, valid local paths, JSON-LD, sitemap images, CTA placement, and calculator metadata.`);
