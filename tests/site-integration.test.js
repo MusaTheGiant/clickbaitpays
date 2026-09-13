@@ -82,6 +82,7 @@ assert.ok(lessonQuizzes.every((quiz, index) => index === 0 || quiz.correctLetter
 
 dashboardFiles.forEach(name => {
   const html = read(name);
+  assert.equal((html.match(/data-lesson-status="(?:[1-9]|1[01])" data-compact-status/g) || []).length, 11, `${name} has one compact status indicator for every lesson`);
   const explainer = html.indexOf('href="videos.html"><span aria-hidden="true">▶</span><b>Explainer Videos</b>');
   const calculator = html.indexOf('href="profit-calculator.html"');
   assert.ok(explainer >= 0, `${name} contains Explainer Videos`);
@@ -241,6 +242,7 @@ assert.match(llms, /maximum of three active campaigns total per account/, "llms.
 assert.doesNotMatch(llms, /\.com\.com/, "llms.txt contains no malformed domain");
 
 const css = read(path.join("assets", "styles.css"));
+const appJs = read(path.join("assets", "app.js"));
 const structuralCss = css.replace(/\/\*[\s\S]*?\*\//g, "").replace(/"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'/g, "");
 let braceDepth = 0;
 for (const character of structuralCss) {
@@ -250,8 +252,18 @@ for (const character of structuralCss) {
 }
 assert.equal(braceDepth, 0, "CSS braces are balanced");
 assert.match(css, /@media \(max-width: 1180px\), \(hover: none\) and \(pointer: coarse\)[\s\S]*?\.landing-page \.circuit-backdrop \{ height: 100svh; \}[\s\S]*?\.landing-page \.circuit-horizon \+ path \{ display: none; \}/, "mobile and touch layouts stabilize the backdrop and hide the jumping horizon lines");
+assert.match(css, /\/\* Signal Aurora background[\s\S]*?\.circuit-backdrop \{\s*display: none;\s*\}/, "Signal Aurora replaces the circuit backdrop across the website");
+assert.match(css, /body::before \{[\s\S]*?signal-aurora-drift 24s ease-in-out infinite alternate;/, "Signal Aurora uses the approved slow ambient desktop motion");
+assert.match(css, /@media \(max-width: 1180px\), \(hover: none\) and \(pointer: coarse\) \{[\s\S]*?body::before \{[\s\S]*?height: 100svh;[\s\S]*?animation: none;[\s\S]*?body::after \{\s*animation: none;/, "Signal Aurora remains static and viewport-stable on touch and smaller devices");
+assert.match(css, /@media \(prefers-reduced-motion: reduce\) \{[\s\S]*?body::before,[\s\S]*?body::after,[\s\S]*?\.landing-page \.hero-v2::before \{\s*animation: none !important;/, "Signal Aurora supplies a reduced-motion fallback");
+assert.match(appJs, /document\.addEventListener\("visibilitychange", syncAmbientMotion\)/, "Signal Aurora pauses when the browser tab is hidden");
+assert.match(appJs, /node\.textContent = isCurrent \? "🔓" : \(isComplete \? "✓" : "🔒"\);/, "lesson navigation assigns unlocked, completed, and locked symbols in priority order");
+assert.match(appJs, /node\.setAttribute\("aria-label", `Lesson \$\{lesson\}: \$\{state\}`\);/, "lesson status symbols receive descriptive accessible labels");
+assert.match(appJs, /node\.classList\.toggle\("is-complete", !isCurrent && isComplete\);/, "the current lesson's unlocked state takes priority over its completed state");
+assert.match(css, /\.course-nav-link i\.is-current \{[^}]*color: var\(--cyan\);/, "the current lesson status is visually distinct");
+assert.match(css, /\.course-nav-link i\.is-complete \{[^}]*color: var\(--green\);/, "completed lesson check marks are green");
 assert.match(css, /@media \(max-width: 480px\)[\s\S]*?\.calculator-metrics \{ grid-template-columns: 1fr; \}/, "small phones receive a single-column results layout");
 assert.match(css, /\.calculator-main \{ width: calc\(100% - 1\.25rem\); \}/, "small-phone calculator width stays inside the viewport");
 assert.match(css, /@media \(prefers-reduced-motion: no-preference\)/, "animation remains opt-in when reduced motion is not requested");
 
-console.log(`Site integration tests passed: ${htmlFiles.length} HTML pages, ${dashboardFiles.length} dashboard menus, ${lessonQuizzes.length} balanced knowledge checks, ${indexableEntries.length} complete SEO/social records, matching campaign tables, valid local paths, JSON-LD, sitemap images, CTA placement, and calculator metadata.`);
+console.log(`Site integration tests passed: ${htmlFiles.length} HTML pages, ${dashboardFiles.length} dashboard menus, ${lessonQuizzes.length} balanced knowledge checks, ${indexableEntries.length} complete SEO/social records, matching campaign tables, valid local paths, JSON-LD, sitemap images, CTA placement, calculator metadata, lesson-status indicators, and Signal Aurora safeguards.`);

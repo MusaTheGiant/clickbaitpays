@@ -44,6 +44,7 @@
     const completed = readCompleted();
     const count = completed.size;
     const percent = Math.round((count / totalLessons) * 100);
+    const currentLesson = Number(document.body.dataset.lessonNumber || 0);
     document.querySelectorAll("[data-progress-percent]").forEach(node => { node.textContent = `${percent}%`; });
     document.querySelectorAll("[data-completed-count]").forEach(node => { node.textContent = count; });
     document.querySelectorAll("[data-remaining-count]").forEach(node => { node.textContent = totalLessons - count; });
@@ -55,14 +56,30 @@
     document.querySelectorAll("[data-lesson-status]").forEach(node => {
       const lesson = Number(node.dataset.lessonStatus);
       const isComplete = completed.has(lesson);
-      node.textContent = node.hasAttribute("data-compact-status") ? (isComplete ? "✓" : "○") : (isComplete ? "Completed ✓" : "Not completed");
-      node.classList.toggle("is-complete", isComplete);
+      const isCurrent = lesson === currentLesson;
+
+      if (node.hasAttribute("data-compact-status")) {
+        const state = isCurrent ? "current lesson, unlocked" : (isComplete ? "completed" : "not completed, locked");
+        node.textContent = isCurrent ? "🔓" : (isComplete ? "✓" : "🔒");
+        node.setAttribute("aria-label", `Lesson ${lesson}: ${state}`);
+        node.title = state.charAt(0).toUpperCase() + state.slice(1);
+        node.classList.toggle("is-current", isCurrent);
+        node.classList.toggle("is-complete", !isCurrent && isComplete);
+        node.classList.toggle("is-locked", !isCurrent && !isComplete);
+      } else {
+        node.textContent = isComplete ? "Completed ✓" : "Not completed";
+        node.classList.toggle("is-complete", isComplete);
+      }
     });
     document.querySelectorAll("[data-lesson-card]").forEach(node => {
-      node.classList.toggle("is-complete", completed.has(Number(node.dataset.lessonCard)));
+      const lesson = Number(node.dataset.lessonCard);
+      const isCurrent = lesson === currentLesson;
+      node.classList.toggle("is-complete", completed.has(lesson));
+      node.classList.toggle("is-current", isCurrent);
+      if (isCurrent) node.setAttribute("aria-current", "page");
+      else node.removeAttribute("aria-current");
     });
 
-    const currentLesson = Number(document.body.dataset.lessonNumber || 0);
     const currentNextLesson = document.querySelector("[data-next-lesson]");
     if (currentLesson && completed.has(currentLesson)) {
       unlockNext(currentNextLesson);
@@ -382,6 +399,12 @@
     const empty = document.querySelector("[data-glossary-empty]");
     if (empty) empty.hidden = visible > 0;
   });
+
+  const syncAmbientMotion = () => {
+    document.body.classList.toggle("ambient-paused", document.hidden);
+  };
+  document.addEventListener("visibilitychange", syncAmbientMotion);
+  syncAmbientMotion();
 
   updateProgress();
 })();
