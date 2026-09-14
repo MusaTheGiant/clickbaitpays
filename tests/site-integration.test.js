@@ -122,6 +122,15 @@ Object.entries(recommendedCtas).forEach(([name, label]) => {
 });
 assert.equal(htmlFiles.reduce((total, name) => total + (read(name).match(/data-calculator-cta/g) || []).length, 0), 3, "only the three recommended lesson pages have contextual calculator CTAs");
 
+const videosHtml = read("videos.html");
+const videoCards = [...videosHtml.matchAll(/<article class="video-library-card">[\s\S]*?<\/article>/g)];
+assert.equal(videoCards.length, 4, "Explainer Videos page has four video cards");
+assert.match(videoCards[3][0], /data-video-id="25wXab2hAB8"/, "fourth card uses the replacement YouTube video ID");
+assert.match(videoCards[3][0], /data-video-url="https:\/\/www\.youtube\.com\/watch\?v=25wXab2hAB8"/, "fourth card fallback opens the replacement video");
+assert.match(videoCards[3][0], /src="https:\/\/i\.ytimg\.com\/vi\/25wXab2hAB8\/maxresdefault\.jpg"/, "fourth card uses the replacement video thumbnail");
+assert.equal((videosHtml.match(/data-video-open/g) || []).length, 4, "all four video cards use the same modal playback trigger");
+assert.doesNotMatch(videosHtml, /5SLBAgVdtXw/, "the previous fourth video is fully removed");
+
 const allLocalReferences = [];
 htmlFiles.forEach(name => {
   const html = read(name);
