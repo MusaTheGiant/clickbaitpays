@@ -131,6 +131,14 @@ assert.match(videoCards[3][0], /src="https:\/\/i\.ytimg\.com\/vi\/25wXab2hAB8\/m
 assert.equal((videosHtml.match(/data-video-open/g) || []).length, 4, "all four video cards use the same modal playback trigger");
 assert.doesNotMatch(videosHtml, /5SLBAgVdtXw/, "the previous fourth video is fully removed");
 
+const resourcesHtml = read("resources.html");
+const compliancePdfPath = path.join(root, "downloads", "Social-Media-Compliance-Deck.pdf");
+assert.equal((resourcesHtml.match(/href="downloads\/Social-Media-Compliance-Deck\.pdf"/g) || []).length, 1, "Resources page links to the compliance PDF once");
+assert.match(resourcesHtml, /<h2>Social Media Compliance<\/h2>/, "Resources page names the compliance guide clearly");
+assert.match(resourcesHtml, /Open Compliance Guide<\/a>/, "Resources page provides a clear compliance-guide action");
+assert.ok(fs.existsSync(compliancePdfPath), "Social Media Compliance PDF is included in the website package");
+assert.equal(fs.readFileSync(compliancePdfPath).subarray(0, 5).toString("ascii"), "%PDF-", "Social Media Compliance resource is a valid PDF file");
+
 const allLocalReferences = [];
 htmlFiles.forEach(name => {
   const html = read(name);

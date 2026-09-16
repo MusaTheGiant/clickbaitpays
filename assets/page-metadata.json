@@ -206,12 +206,12 @@
       "canonical": "https://clickbaitpaysus.com/resources.html",
       "indexable": true,
       "seoTitle": "ClickBaitPays Guides, Slides and Learning Resources",
-      "description": "Open ClickBaitPays guides, presentation slides, official questions and terms, the Growth Roadmap, Sustainability Story, and focused learning resources.",
+      "description": "Open ClickBaitPays guides, presentation slides, the Social Media Compliance guide, roadmaps, official terms, and practical learning resources.",
       "socialTitle": "ClickBaitPays Learning Resources",
-      "socialDescription": "Open guides, slides, roadmaps, reference pages, and practical learning tools.",
+      "socialDescription": "Open the Social Media Compliance guide, slides, roadmaps, reference pages, and practical learning tools.",
       "socialImage": "assets/social/resources.png",
       "socialImageAlt": "ClickBaitPays guides, slides, roadmaps, and learning resources",
-      "htmlSha256": "06d027e0928ccb018ead6e1163e406a3210c9a0aa641e4e1085c5b084a908c98"
+      "htmlSha256": "d680f1cf4c675f51f466fc13721635421f6e87b1a38eea9da90dbe53fba50f4c"
     },
     "completion.html": {
       "canonical": "https://clickbaitpaysus.com/completion.html",
