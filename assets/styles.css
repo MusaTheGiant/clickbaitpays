@@ -1420,3 +1420,156 @@ html[data-theme="light"] .dashboard-sidebar {
     display: none !important;
   }
 }
+
+/* Signal Motion | restrained entrances and direct interaction feedback.
+   No content starts hidden in CSS. The script uses finite native animations. */
+:root {
+  --motion-ease: cubic-bezier(.22, 1, .36, 1);
+  --motion-quick: 180ms;
+  --motion-menu: 340ms;
+}
+
+@keyframes signal-sheen {
+  0% { background-position: 160% 0; opacity: 0; }
+  18% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { background-position: -60% 0; opacity: 0; }
+}
+@keyframes signal-feedback {
+  from { opacity: .4; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes signal-page-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes signal-page-out {
+  to { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Supported browsers cross-fade native navigations. Others navigate normally. */
+  @view-transition { navigation: auto; }
+  ::view-transition-old(root) { animation: signal-page-out 140ms ease-out both; }
+  ::view-transition-new(root) { animation: signal-page-in 220ms ease-out both; }
+  ::view-transition-group(*) { animation-duration: 220ms; }
+  ::view-transition { pointer-events: none; }
+
+  .button, .icon-button, .topbar-home, .calculator-tabs button {
+    transition: transform var(--motion-quick) var(--motion-ease),
+      box-shadow 240ms ease, border-color 200ms ease, background-color 200ms ease, color 180ms ease;
+  }
+  .button:not(:disabled):not([aria-disabled="true"]):active,
+  .icon-button:active, .calculator-tabs button:active { transform: translateY(0) scale(.985); }
+  .button > span[aria-hidden="true"] { transition: translate 220ms var(--motion-ease); }
+  .button:focus-visible, .topbar-home:focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 4px;
+  }
+
+  .button:is(.primary, .platform-register) { position: relative; isolation: isolate; }
+  .button:is(.primary, .platform-register)::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    background: linear-gradient(110deg, transparent 36%, rgba(255,255,255,.2) 50%, transparent 64%);
+    background-size: 250% 100%;
+    background-position: 160% 0;
+  }
+
+  .tool-grid > a, .lesson-preview-grid > a, .lesson-list > a,
+  .platform-access-grid > a, .resource-grid > article, .video-library-card,
+  .value-grid > article, .process-grid > article, .next-lesson-card {
+    transition: translate 280ms var(--motion-ease), transform 280ms var(--motion-ease),
+      border-color 240ms ease, box-shadow 280ms ease;
+  }
+  .dashboard-nav-link, .course-nav-link, .landing-header nav a,
+  .site-nav a, .course-nav summary, .answer {
+    transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+  }
+  .dashboard-nav-link > span, .course-nav-link > span,
+  .landing-header nav a:not(.button), .text-link {
+    transition: translate 220ms var(--motion-ease), color 180ms ease;
+  }
+  .answer { transition: border-color 180ms ease, background-color 180ms ease; }
+  .feedback-success, .feedback-retry,
+  .calculator-mode-panel:not([hidden]), [data-results-content]:not([hidden]) {
+    animation: signal-feedback 280ms var(--motion-ease) both;
+  }
+  .progress-track > span, .mini-progress > span,
+  .progress-ring .ring-value, .score-ring .ring-value {
+    transition-timing-function: var(--motion-ease);
+    transition-duration: 700ms;
+  }
+  .dashboard-menu-toggle span, .menu-toggle span {
+    transition: transform 240ms var(--motion-ease), opacity 160ms ease;
+  }
+  .dashboard-menu-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .dashboard-menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .dashboard-menu-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+  .menu-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .menu-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  @media (min-width: 1181px) {
+    .dashboard-sidebar { view-transition-name: cbp-sidebar; }
+    .dashboard-topbar { view-transition-name: cbp-topbar; }
+  }
+  @media (max-width: 1180px) {
+    .dashboard-sidebar { transition: transform var(--motion-menu) var(--motion-ease); }
+    .sidebar-overlay {
+      display: block;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 240ms ease, visibility 0s linear 340ms;
+    }
+    body.sidebar-open .sidebar-overlay {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transition-delay: 0s;
+    }
+  }
+  @media (max-width: 1000px) {
+    .site-nav.open { animation: signal-feedback 220ms var(--motion-ease) both; }
+  }
+  @media (hover: hover) and (pointer: fine) {
+    html:not([data-motion="off"]) .button:is(.primary, .platform-register):not(:disabled):not([aria-disabled="true"]):hover::before {
+      animation: signal-sheen 700ms var(--motion-ease) both;
+    }
+    .button:hover > span[aria-hidden="true"] { translate: 3px 0; }
+    .resource-grid > article:hover, .video-library-card:hover,
+    .value-grid > article:hover, .process-grid > article:hover {
+      translate: 0 -3px;
+      border-color: var(--cyan);
+      box-shadow: 0 12px 30px rgba(0,0,0,.14);
+    }
+    .dashboard-nav-link:hover > span, .course-nav-link:hover > span { translate: 2px 0; }
+    .landing-header nav a:not(.button):hover, .text-link:hover { translate: 0 -1px; }
+  }
+}
+
+/* Motion is decorative. Immediately settle it when requested, printing,
+   changing tabs, or when the existing activity loop is outside the viewport. */
+.ambient-paused *, .ambient-paused *::before, .ambient-paused *::after,
+.motion-loop-paused .loop-pulse, .motion-loop-paused .loop-arrow { animation-play-state: paused !important; }
+html[data-motion="off"] *, html[data-motion="off"] *::before,
+html[data-motion="off"] *::after { animation: none !important; transition-duration: 0s !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition { navigation: none; }
+  *, *::before, *::after { animation: none !important; transition-duration: 0s !important; }
+  .button:hover, .lesson-list > a:hover, .lesson-preview-grid > a:hover,
+  .tool-grid > a:hover, .platform-access-grid > a:hover { transform: none; }
+}
+@media (hover: none), (pointer: coarse) {
+  .button:hover, .lesson-list > a:hover, .lesson-preview-grid > a:hover,
+  .tool-grid > a:hover, .platform-access-grid > a:hover { transform: none; }
+}
+@media print {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
