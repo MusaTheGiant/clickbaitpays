@@ -2,12 +2,13 @@
 
 20 September 2026
 
-This complete website package adds clearly visible, cinematic motion to the approved Signal Aurora design. Signal Motion 2.0 replaces the original overly brief timings with longer entrances, wider staggers, depth, glow and controlled blur while keeping reading and navigation immediate.
+This complete website package adds clearly visible, cinematic motion to the approved Signal Aurora design. The final slow-reveal edition gives every major page section a long, smooth upward glide with soft focus-to-sharp depth while keeping reading and navigation immediate.
 
 ## What changes
 
 - The homepage introduces its headline, explanation, actions and activity loop in a deliberate cinematic sequence.
-- Page headings, selected sections and cards reveal once with slower movement, depth and alternating direction when they enter the viewport.
+- Every major section rises slowly as one complete composition when it enters the viewport. The 1.8-second desktop reveal is deliberately smooth and noticeable.
+- Phones use a 1.25-second version with less travel to preserve performance and avoid excessive screen movement.
 - Buttons have brief press feedback; primary buttons have a single light sweep on mouse hover.
 - Cards and navigation links have small hover movements on devices with a mouse.
 - Dashboard menus and expandable sections open smoothly. Quiz feedback and progress updates have short transitions.
