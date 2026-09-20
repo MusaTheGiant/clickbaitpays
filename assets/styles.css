@@ -542,6 +542,7 @@ html[data-theme="light"] .circuit-backdrop { opacity: .22; }
 .landing-header nav { display: flex; gap: .25rem; margin-left: auto; }
 .landing-header nav a { padding: .62rem .8rem; border-radius: 10px; color: var(--muted); font-size: .84rem; font-weight: 700; text-decoration: none; }
 .landing-header nav a:hover { background: rgba(255, 255, 255, .05); color: var(--text); }
+.landing-header nav .mobile-menu-only { display: none; }
 .landing-page .hero-v2 { width: min(calc(100% - 3rem), 1320px); min-height: calc(100vh - 98px); grid-template-columns: minmax(0, 1fr) minmax(360px, .62fr); align-items: center; gap: clamp(4.5rem, 8vw, 8rem); padding-block: clamp(5rem, 10vh, 8rem); overflow: visible; }
 .hero-v2 .hero-copy { position: relative; min-width: 0; max-width: 100%; }
 .hero-v2 h1 { display: grid; max-width: 100%; margin-bottom: 1.6rem; font-size: clamp(3.4rem, 6.1vw, 6.25rem); line-height: .87; letter-spacing: -.065em; text-transform: uppercase; text-shadow: 0 0 36px rgba(177, 139, 255, .15); }
@@ -870,6 +871,34 @@ h1, h2, h3, p, a, strong { overflow-wrap: break-word; }
 /* Mobile browser chrome changes the visual viewport while scrolling. Keep the
    fixed circuit background stable and remove its viewport-edge horizon lines
    on smaller or touch-based devices so they cannot jump during that resize. */
+@media (max-width: 1100px) {
+  .landing-header { gap: .8rem; }
+  .landing-header .header-actions { order: 2; margin-left: auto; }
+  .landing-header .header-actions .whatsapp,
+  .landing-header .header-actions .platform-register { display: none; }
+  .landing-header .landing-menu-toggle { order: 3; flex: 0 0 auto; display: block; margin-left: 0; }
+  .landing-header .site-nav {
+    position: absolute;
+    top: calc(100% + .65rem);
+    right: 0;
+    left: 0;
+    display: none;
+    max-height: calc(100dvh - 7rem);
+    overflow-y: auto;
+    margin: 0;
+    padding: .75rem;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: rgba(10, 6, 27, .98);
+    box-shadow: 0 22px 60px rgba(0, 0, 0, .48), var(--shadow-cyan);
+    backdrop-filter: blur(20px);
+  }
+  .landing-header .site-nav.open { display: grid; }
+  .landing-header .site-nav a { min-height: 48px; display: flex; align-items: center; padding: .75rem .9rem; }
+  .landing-header .site-nav .button { justify-content: center; text-align: center; }
+  .landing-header .site-nav .mobile-menu-only { display: flex; }
+}
+
 @media (max-width: 1180px), (hover: none) and (pointer: coarse) {
   .landing-page .circuit-backdrop { height: 100svh; }
   .landing-page .circuit-horizon,
@@ -1550,7 +1579,7 @@ html[data-theme="light"] .dashboard-sidebar {
       transition-delay: 0s;
     }
   }
-  @media (max-width: 1000px) {
+  @media (max-width: 1100px) {
     .site-nav.open { animation: signal-feedback 420ms var(--motion-ease) both; }
   }
   @media (hover: hover) and (pointer: fine) {
