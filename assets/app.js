@@ -151,10 +151,21 @@
 
   const menuButton = document.querySelector(".menu-toggle");
   const navigation = document.querySelector(".site-nav");
+  const setNavigationOpen = (open, returnFocus = false) => {
+    menuButton?.setAttribute("aria-expanded", String(open));
+    menuButton?.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+    const menuLabel = menuButton?.querySelector(".sr-only");
+    if (menuLabel) menuLabel.textContent = open ? "Close navigation menu" : "Open navigation menu";
+    navigation?.classList.toggle("open", open);
+    if (returnFocus) menuButton?.focus();
+  };
   menuButton?.addEventListener("click", () => {
     const open = menuButton.getAttribute("aria-expanded") === "true";
-    menuButton.setAttribute("aria-expanded", String(!open));
-    navigation?.classList.toggle("open", !open);
+    setNavigationOpen(!open);
+  });
+  navigation?.querySelectorAll("a").forEach(link => link.addEventListener("click", () => setNavigationOpen(false)));
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && menuButton?.getAttribute("aria-expanded") === "true") setNavigationOpen(false, true);
   });
 
   const dashboardMenuButton = document.querySelector(".dashboard-menu-toggle");
