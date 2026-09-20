@@ -431,20 +431,22 @@
     active.clear();
   };
 
-  const play = (node, delay = 0, distance = 18, duration = 580) => {
+  const play = (node, delay = 0, distance = 34, duration = 960, horizontal = 0) => {
     if (!node || !allowed() || node.closest("[hidden]") || node.contains(document.activeElement)) return;
     // Honour any existing transform (for example, the lesson number orbit).
     const base = getComputedStyle(node).transform;
-    const shift = compact.matches ? Math.min(distance, 10) : distance;
+    const shift = compact.matches ? Math.min(distance, 18) : distance;
+    const sideShift = compact.matches ? Math.sign(horizontal) * Math.min(Math.abs(horizontal), 12) : horizontal;
     active.get(node)?.cancel();
     try {
       const animation = node.animate([
-        { opacity: 0, transform: `translate3d(0, ${shift}px, 0)${base === "none" ? "" : ` ${base}`}` },
-        { opacity: 1, transform: base }
+        { opacity: 0, filter: "blur(9px)", transform: `translate3d(${sideShift}px, ${shift}px, 0) scale(.975)${base === "none" ? "" : ` ${base}`}` },
+        { opacity: .72, filter: "blur(2px)", offset: .62, transform: `translate3d(${sideShift * .15}px, ${shift * .15}px, 0) scale(.995)${base === "none" ? "" : ` ${base}`}` },
+        { opacity: 1, filter: "blur(0)", transform: base }
       ], {
-        duration: compact.matches ? Math.min(duration, 380) : duration,
-        delay: compact.matches ? Math.min(delay, 90) : delay,
-        easing: "cubic-bezier(.22, 1, .36, 1)", fill: "backwards"
+        duration: compact.matches ? Math.min(duration, 720) : duration,
+        delay: compact.matches ? Math.min(delay, 240) : delay,
+        easing: "cubic-bezier(.16, 1, .3, 1)", fill: "backwards"
       });
       animation.id = "cbp-signal-motion";
       active.set(node, animation);
@@ -496,9 +498,9 @@
         // Skip elements above a restored scroll position or a direct anchor.
         if (entry.boundingClientRect.bottom < 0) return;
         const options = queued.get(node);
-        play(node, Math.min(options.delay ?? index * 55, 280), options.distance, options.duration);
+        play(node, Math.min(options.delay ?? index * 120, 600), options.distance, options.duration, options.horizontal);
       });
-    }, { threshold: 0, rootMargin: "0px 0px 24px 0px" });
+    }, { threshold: .08, rootMargin: "0px 0px -6% 0px" });
 
     const register = (node, options = {}) => {
       if (!node || queued.has(node)) return;
@@ -515,33 +517,38 @@
     if (hero) {
       [hero.querySelector(".eyebrow"), ...hero.querySelectorAll("h1 > span"),
         hero.querySelector(".lead"), hero.querySelector(".button-row"), hero.querySelector(".trust-list")]
-        .filter(Boolean).forEach((node, index) => register(node, { delay: index * 45, distance: 22, duration: 650 }));
-      register(document.querySelector(".hero-cycle-stage"), { delay: 140, distance: 16, duration: 760 });
+        .filter(Boolean).forEach((node, index) => register(node, { delay: index * 135, distance: 42, duration: 1100 }));
+      register(document.querySelector(".hero-cycle-stage"), { delay: 520, distance: 30, duration: 1320, horizontal: 28 });
     }
 
     document.querySelectorAll(".page-hero, .lesson-hero > div:first-child, .dashboard-welcome > div:first-child, .calculator-hero > div:first-child, .completion-hero")
-      .forEach(group => [...group.children].forEach((node, index) => register(node, { delay: index * 55 })));
+      .forEach(group => [...group.children].forEach((node, index) => register(node, { delay: index * 130, distance: 38, duration: 1050 })));
     document.querySelectorAll(".dashboard-score, .lesson-orbit, .calculator-rule-chip")
-      .forEach(node => register(node, { delay: 150 }));
+      .forEach(node => register(node, { delay: 260, distance: 30, duration: 1150, horizontal: 22 }));
 
     const groups = ".value-grid, .process-grid, .lesson-preview-grid, .lesson-list, .tool-grid, .platform-access-grid, .dashboard-stats, .resource-grid, .video-grid, .glossary-grid, .contact-grid, .question-grid, .faq-list, .calculator-explainers";
     document.querySelectorAll(groups).forEach(group => {
-      [...group.children].forEach(node => register(node));
+      [...group.children].forEach((node, index) => register(node, {
+        delay: index * 125,
+        distance: 32,
+        duration: 980,
+        horizontal: index % 2 ? 18 : -18
+      }));
     });
     document.querySelectorAll(".section-heading, .center-heading, .dashboard-section-head, .campaign-teaser-copy, .landing-path > div:first-child, .transparency > div, .landing-final > div:first-child, .next-lesson-card, .dashboard-note, .community-card, .landing-video-card, .quiz-top, .quiz-card > h2, .lesson-section > h2, .lesson-section > p, .lesson-section > .notice, .legal-content > h2, .legal-content > p")
-      .forEach(node => register(node));
+      .forEach(node => register(node, { distance: 36, duration: 1000 }));
   }
 
   // Native details controls keep their keyboard behaviour and open immediately.
   document.querySelectorAll(".course-nav, .faq-list details, .question-grid details, .calculator-explainers details").forEach(details => {
     details.addEventListener("toggle", () => {
       if (details.open) [...details.children].filter(node => node.tagName !== "SUMMARY")
-        .forEach(node => play(node, 0, 6, 260));
+        .forEach((node, index) => play(node, index * 80, 12, 480));
     });
   });
   document.querySelector(".dashboard-menu-toggle")?.addEventListener("click", () => {
     if (document.querySelector(".dashboard-sidebar.open")) {
-      play(document.querySelector(".dashboard-nav"), 50, 8, 320);
+      play(document.querySelector(".dashboard-nav"), 80, 18, 580, -14);
     }
   });
 

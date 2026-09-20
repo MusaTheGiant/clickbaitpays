@@ -1421,12 +1421,12 @@ html[data-theme="light"] .dashboard-sidebar {
   }
 }
 
-/* Signal Motion | restrained entrances and direct interaction feedback.
+/* Signal Motion 2.0 | cinematic entrances and direct interaction feedback.
    No content starts hidden in CSS. The script uses finite native animations. */
 :root {
   --motion-ease: cubic-bezier(.22, 1, .36, 1);
-  --motion-quick: 180ms;
-  --motion-menu: 340ms;
+  --motion-quick: 240ms;
+  --motion-menu: 480ms;
 }
 
 @keyframes signal-sheen {
@@ -1440,24 +1440,40 @@ html[data-theme="light"] .dashboard-sidebar {
   to { opacity: 1; transform: none; }
 }
 @keyframes signal-page-in {
-  from { opacity: 0; }
+  from { opacity: 0; filter: blur(5px); transform: translateY(8px); }
   to { opacity: 1; }
 }
 @keyframes signal-page-out {
-  to { opacity: 0; }
+  to { opacity: 0; filter: blur(3px); transform: scale(.995); }
+}
+@keyframes signal-title-flow {
+  0%, 12% { background-position: 0% 50%; filter: drop-shadow(0 0 10px rgba(0, 229, 255, .12)); }
+  50% { background-position: 100% 50%; filter: drop-shadow(0 0 24px rgba(192, 82, 255, .3)); }
+  88%, 100% { background-position: 0% 50%; filter: drop-shadow(0 0 16px rgba(255, 0, 223, .2)); }
+}
+@keyframes signal-cycle-arrival {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 229, 255, 0); }
+  45% { box-shadow: 0 0 0 12px rgba(0, 229, 255, .035), 0 0 48px rgba(255, 0, 223, .16); }
 }
 
 @media (prefers-reduced-motion: no-preference) {
   /* Supported browsers cross-fade native navigations. Others navigate normally. */
   @view-transition { navigation: auto; }
-  ::view-transition-old(root) { animation: signal-page-out 140ms ease-out both; }
-  ::view-transition-new(root) { animation: signal-page-in 220ms ease-out both; }
-  ::view-transition-group(*) { animation-duration: 220ms; }
+  ::view-transition-old(root) { animation: signal-page-out 260ms ease-out both; }
+  ::view-transition-new(root) { animation: signal-page-in 520ms var(--motion-ease) both; }
+  ::view-transition-group(*) { animation-duration: 520ms; }
   ::view-transition { pointer-events: none; }
 
   .button, .icon-button, .topbar-home, .calculator-tabs button {
     transition: transform var(--motion-quick) var(--motion-ease),
       box-shadow 240ms ease, border-color 200ms ease, background-color 200ms ease, color 180ms ease;
+  }
+  .hero-v2 h1 .hero-gradient {
+    background-size: 220% 100%;
+    animation: signal-title-flow 6s ease-in-out 1.2s infinite;
+  }
+  .hero-cycle-stage::before {
+    animation: signal-cycle-arrival 4.8s ease-in-out 1.5s infinite;
   }
   .button:not(:disabled):not([aria-disabled="true"]):active,
   .icon-button:active, .calculator-tabs button:active { transform: translateY(0) scale(.985); }
@@ -1497,12 +1513,12 @@ html[data-theme="light"] .dashboard-sidebar {
   .answer { transition: border-color 180ms ease, background-color 180ms ease; }
   .feedback-success, .feedback-retry,
   .calculator-mode-panel:not([hidden]), [data-results-content]:not([hidden]) {
-    animation: signal-feedback 280ms var(--motion-ease) both;
+    animation: signal-feedback 520ms var(--motion-ease) both;
   }
   .progress-track > span, .mini-progress > span,
   .progress-ring .ring-value, .score-ring .ring-value {
     transition-timing-function: var(--motion-ease);
-    transition-duration: 700ms;
+    transition-duration: 1100ms;
   }
   .dashboard-menu-toggle span, .menu-toggle span {
     transition: transform 240ms var(--motion-ease), opacity 160ms ease;
@@ -1535,18 +1551,18 @@ html[data-theme="light"] .dashboard-sidebar {
     }
   }
   @media (max-width: 1000px) {
-    .site-nav.open { animation: signal-feedback 220ms var(--motion-ease) both; }
+    .site-nav.open { animation: signal-feedback 420ms var(--motion-ease) both; }
   }
   @media (hover: hover) and (pointer: fine) {
     html:not([data-motion="off"]) .button:is(.primary, .platform-register):not(:disabled):not([aria-disabled="true"]):hover::before {
-      animation: signal-sheen 700ms var(--motion-ease) both;
+      animation: signal-sheen 950ms var(--motion-ease) both;
     }
     .button:hover > span[aria-hidden="true"] { translate: 3px 0; }
     .resource-grid > article:hover, .video-library-card:hover,
     .value-grid > article:hover, .process-grid > article:hover {
-      translate: 0 -3px;
+      translate: 0 -6px;
       border-color: var(--cyan);
-      box-shadow: 0 12px 30px rgba(0,0,0,.14);
+      box-shadow: 0 18px 42px rgba(0,0,0,.22), 0 0 24px rgba(0,229,255,.08);
     }
     .dashboard-nav-link:hover > span, .course-nav-link:hover > span { translate: 2px 0; }
     .landing-header nav a:not(.button):hover, .text-link:hover { translate: 0 -1px; }

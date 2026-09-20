@@ -1,18 +1,19 @@
-# Signal Motion update
+# Signal Motion 2.0 update
 
-18 September 2026
+20 September 2026
 
-This complete website package adds restrained motion to the approved Signal Aurora design. The brief was to guide attention through a short entrance, make interactions feel responsive, and keep reading and navigation immediate.
+This complete website package adds clearly visible, cinematic motion to the approved Signal Aurora design. Signal Motion 2.0 replaces the original overly brief timings with longer entrances, wider staggers, depth, glow and controlled blur while keeping reading and navigation immediate.
 
 ## What changes
 
-- The homepage introduces its headline, explanation, actions and activity loop in a short staggered sequence.
-- Page headings, selected sections and cards reveal once when they enter the viewport.
+- The homepage introduces its headline, explanation, actions and activity loop in a deliberate cinematic sequence.
+- Page headings, selected sections and cards reveal once with slower movement, depth and alternating direction when they enter the viewport.
 - Buttons have brief press feedback; primary buttons have a single light sweep on mouse hover.
 - Cards and navigation links have small hover movements on devices with a mouse.
 - Dashboard menus and expandable sections open smoothly. Quiz feedback and progress updates have short transitions.
-- Supporting browsers cross-fade between pages using native navigation. Other browsers retain normal page navigation.
-- Phone and touch-device entrances use shorter movement and timings. Reduced-motion preferences disable animation. Entrances settle immediately when the visitor taps or focuses a control.
+- The hero headline carries a slow cyan, violet and magenta light flow, while the activity loop receives a soft breathing halo.
+- Supporting browsers use a more noticeable native page transition. Other browsers retain normal page navigation.
+- Phone and touch-device entrances remain clearly visible but use shorter movement and timings. Reduced-motion preferences disable animation. Entrances settle immediately when the visitor taps or focuses a control.
 - Decorative activity-loop motion pauses offscreen, and animations stop when the tab is hidden.
 
 Only two existing website files changed:
@@ -31,7 +32,7 @@ If the current live website already contains the previous resources/video update
 3. Open your website repository on GitHub. Select the branch used by GitHub Pages, then open its existing `assets` folder.
 4. Click **Add file**, then **Upload files**.
 5. Drag only the extracted `app.js` and `styles.css` files into the upload area. Upload the files inside the existing `assets` folder, not a second assets folder.
-6. Use a commit message such as `Add Signal Motion animations` and commit the changes to the publishing branch.
+6. Use a commit message such as `Upgrade to Signal Motion 2.0` and commit the changes to the publishing branch.
 7. Wait for the GitHub Pages deployment to finish. Open the website and refresh. If the old styling remains, use a hard refresh or a private browser tab.
 
 If earlier website updates have not yet been uploaded, upload the complete extracted package to the repository root, preserving its folders. `index.html` must be at the repository root. Upload the extracted files, not the ZIP. GitHub's upload action does not remove obsolete files already in the repository.
