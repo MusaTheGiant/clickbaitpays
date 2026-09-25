@@ -1421,7 +1421,7 @@ html[data-theme="light"] .dashboard-sidebar {
   }
 }
 
-/* Signal Motion 2.0 | cinematic entrances and direct interaction feedback.
+/* Signal Motion | brief section reveals and direct interaction feedback.
    No content starts hidden in CSS. The script uses finite native animations. */
 :root {
   --motion-ease: cubic-bezier(.22, 1, .36, 1);
@@ -1440,11 +1440,11 @@ html[data-theme="light"] .dashboard-sidebar {
   to { opacity: 1; transform: none; }
 }
 @keyframes signal-page-in {
-  from { opacity: 0; filter: blur(5px); transform: translateY(8px); }
+  from { opacity: 0; }
   to { opacity: 1; }
 }
 @keyframes signal-page-out {
-  to { opacity: 0; filter: blur(3px); transform: scale(.995); }
+  to { opacity: 0; }
 }
 @keyframes signal-title-flow {
   0%, 12% { background-position: 0% 50%; filter: drop-shadow(0 0 10px rgba(0, 229, 255, .12)); }
@@ -1457,11 +1457,11 @@ html[data-theme="light"] .dashboard-sidebar {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  /* Supported browsers cross-fade native navigations. Others navigate normally. */
+  /* Supported browsers use a brief crossfade. Others navigate normally. */
   @view-transition { navigation: auto; }
-  ::view-transition-old(root) { animation: signal-page-out 260ms ease-out both; }
-  ::view-transition-new(root) { animation: signal-page-in 520ms var(--motion-ease) both; }
-  ::view-transition-group(*) { animation-duration: 520ms; }
+  ::view-transition-old(root) { animation: signal-page-out 220ms ease both; }
+  ::view-transition-new(root) { animation: signal-page-in 220ms ease both; }
+  ::view-transition-group(*) { animation-duration: 220ms; }
   ::view-transition { pointer-events: none; }
 
   .button, .icon-button, .topbar-home, .calculator-tabs button {
