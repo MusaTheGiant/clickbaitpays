@@ -409,7 +409,7 @@
   updateProgress();
 })();
 
-/* Signal Motion: progressive enhancement. Content is visible by default;
+/* Signal Motion: short, subtle entrances. Content is visible by default;
    nothing depends on an animation finishing to read, click, or navigate. */
 (() => {
   "use strict";
@@ -425,28 +425,28 @@
   const allowed = () => !reduced.matches && !connection?.saveData && !document.hidden;
   let revealObserver;
   let loopObserver;
+  let pageTransitionActive = false;
 
   const settle = () => {
     active.forEach(animation => animation.cancel());
     active.clear();
   };
 
-  const play = (node, delay = 0, distance = 52, duration = 1500, horizontal = 0) => {
-    if (!node || !allowed() || node.closest("[hidden]") || node.contains(document.activeElement)) return;
+  const play = (node, delay = 0, distance = 16, duration = 420, horizontal = 0) => {
+    if (!node || !allowed() || pageTransitionActive || node.closest("[hidden]") || node.contains(document.activeElement)) return;
     // Honour any existing transform (for example, the lesson number orbit).
     const base = getComputedStyle(node).transform;
-    const shift = compact.matches ? Math.min(distance, 30) : distance;
-    const sideShift = compact.matches ? Math.sign(horizontal) * Math.min(Math.abs(horizontal), 12) : horizontal;
+    const shift = compact.matches ? Math.min(distance, 10) : distance;
+    const sideShift = compact.matches ? Math.sign(horizontal) * Math.min(Math.abs(horizontal), 5) : horizontal;
     active.get(node)?.cancel();
     try {
       const animation = node.animate([
-        { opacity: 0, filter: "blur(7px)", transform: `translate3d(${sideShift}px, ${shift}px, 0) scale(.985)${base === "none" ? "" : ` ${base}`}` },
-        { opacity: .68, filter: "blur(2px)", offset: .68, transform: `translate3d(${sideShift * .12}px, ${shift * .12}px, 0) scale(.997)${base === "none" ? "" : ` ${base}`}` },
-        { opacity: 1, filter: "blur(0)", transform: base }
+        { opacity: 0, transform: `translate3d(${sideShift}px, ${shift}px, 0)${base === "none" ? "" : ` ${base}`}` },
+        { opacity: 1, transform: base }
       ], {
-        duration: compact.matches ? Math.min(duration, 1250) : duration,
-        delay: compact.matches ? Math.min(delay, 300) : delay,
-        easing: "cubic-bezier(.22, .72, .22, 1)", fill: "backwards"
+        duration: compact.matches ? Math.min(duration, 320) : duration,
+        delay: compact.matches ? Math.min(delay, 80) : delay,
+        easing: "cubic-bezier(.22, 1, .36, 1)", fill: "backwards"
       });
       animation.id = "cbp-signal-motion";
       active.set(node, animation);
@@ -485,7 +485,13 @@
   document.addEventListener("visibilitychange", syncPreference);
   // Native cross-page transitions already animate the incoming page. Avoid
   // stacking an unfinished entrance under that snapshot; no link interception.
-  window.addEventListener("pagereveal", event => { if (event.viewTransition) settle(); });
+  window.addEventListener("pagereveal", event => {
+    if (!event.viewTransition) return;
+    pageTransitionActive = true;
+    settle();
+    const resume = () => { pageTransitionActive = false; };
+    event.viewTransition.finished.then(resume, resume);
+  });
 
   if (allowed() && "IntersectionObserver" in window) {
     revealObserver = new IntersectionObserver(entries => {
@@ -495,10 +501,10 @@
         revealObserver.unobserve(node);
         if (seen.has(node)) return;
         seen.add(node);
-        // Skip elements above a restored scroll position or a direct anchor.
-        if (entry.boundingClientRect.bottom < 0) return;
+        // Skip elements already shown by a page crossfade or restored scroll position.
+        if (pageTransitionActive || entry.boundingClientRect.bottom < 0) return;
         const options = queued.get(node);
-        play(node, Math.min(options.delay ?? index * 120, 600), options.distance, options.duration, options.horizontal);
+        play(node, Math.min(options.delay ?? index * 45, 120), options.distance, options.duration, options.horizontal);
       });
     }, { threshold: .1, rootMargin: "0px 0px -10% 0px" });
 
@@ -517,43 +523,43 @@
     if (hero) {
       [hero.querySelector(".eyebrow"), ...hero.querySelectorAll("h1 > span"),
         hero.querySelector(".lead"), hero.querySelector(".button-row"), hero.querySelector(".trust-list")]
-        .filter(Boolean).forEach((node, index) => register(node, { delay: index * 170, distance: 54, duration: 1550 }));
-      register(document.querySelector(".hero-cycle-stage"), { delay: 650, distance: 42, duration: 1750, horizontal: 20 });
+        .filter(Boolean).forEach((node, index) => register(node, { delay: index * 55, distance: 16, duration: 420 }));
+      register(document.querySelector(".hero-cycle-stage"), { delay: 120, distance: 14, duration: 440, horizontal: 6 });
     }
 
-    // Reveal each major content section as one composed scene. Registering the
+    // Reveal major sections briefly as one composition. Registering the
     // parent first prevents its cards and headings from running competing motion.
     document.querySelectorAll("main > section:not(.hero), .dashboard-main > section, .lesson-section")
-      .forEach(section => register(section, { delay: 0, distance: 64, duration: 1800 }));
+      .forEach(section => register(section, { delay: 0, distance: 16, duration: 420 }));
 
     document.querySelectorAll(".page-hero, .lesson-hero > div:first-child, .dashboard-welcome > div:first-child, .calculator-hero > div:first-child, .completion-hero")
-      .forEach(group => [...group.children].forEach((node, index) => register(node, { delay: index * 170, distance: 48, duration: 1450 })));
+      .forEach(group => [...group.children].forEach((node, index) => register(node, { delay: index * 45, distance: 14, duration: 400 })));
     document.querySelectorAll(".dashboard-score, .lesson-orbit, .calculator-rule-chip")
-      .forEach(node => register(node, { delay: 300, distance: 44, duration: 1500, horizontal: 16 }));
+      .forEach(node => register(node, { delay: 80, distance: 12, duration: 420, horizontal: 5 }));
 
     const groups = ".value-grid, .process-grid, .lesson-preview-grid, .lesson-list, .tool-grid, .platform-access-grid, .dashboard-stats, .resource-grid, .video-grid, .glossary-grid, .contact-grid, .question-grid, .faq-list, .calculator-explainers";
     document.querySelectorAll(groups).forEach(group => {
       [...group.children].forEach((node, index) => register(node, {
-        delay: index * 170,
-        distance: 48,
-        duration: 1450,
-        horizontal: index % 2 ? 12 : -12
+        delay: index * 45,
+        distance: 14,
+        duration: 400,
+        horizontal: index % 2 ? 5 : -5
       }));
     });
     document.querySelectorAll(".section-heading, .center-heading, .dashboard-section-head, .campaign-teaser-copy, .landing-path > div:first-child, .transparency > div, .landing-final > div:first-child, .next-lesson-card, .dashboard-note, .community-card, .landing-video-card, .quiz-top, .quiz-card > h2, .lesson-section > h2, .lesson-section > p, .lesson-section > .notice, .legal-content > h2, .legal-content > p")
-      .forEach(node => register(node, { distance: 52, duration: 1500 }));
+      .forEach(node => register(node, { distance: 16, duration: 420 }));
   }
 
   // Native details controls keep their keyboard behaviour and open immediately.
   document.querySelectorAll(".course-nav, .faq-list details, .question-grid details, .calculator-explainers details").forEach(details => {
     details.addEventListener("toggle", () => {
       if (details.open) [...details.children].filter(node => node.tagName !== "SUMMARY")
-        .forEach((node, index) => play(node, index * 80, 12, 480));
+        .forEach((node, index) => play(node, index * 35, 8, 260));
     });
   });
   document.querySelector(".dashboard-menu-toggle")?.addEventListener("click", () => {
     if (document.querySelector(".dashboard-sidebar.open")) {
-      play(document.querySelector(".dashboard-nav"), 80, 18, 580, -14);
+      play(document.querySelector(".dashboard-nav"), 40, 8, 280, -5);
     }
   });
 
