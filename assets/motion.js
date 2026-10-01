@@ -4,7 +4,9 @@
 var root=document.documentElement;
 var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 var saveData=navigator.connection&&navigator.connection.saveData;
-var stage=document.querySelector('.hero-v2')||document.querySelector('.lesson-hero')||document.querySelector('.page-hero')||document.querySelector('.dashboard-welcome');
+var stage=document.querySelector('.hero-v2, .lesson-hero, .page-hero, .dashboard-welcome, .calculator-hero, .completion-hero');
+/* fallback: any future page layout, use the block that holds the main headline */
+if(!stage){var mh=document.querySelector('main h1');if(mh)stage=mh.closest('header, section')||mh.parentElement}
 function each(sel,fn){[].slice.call(document.querySelectorAll(sel)).forEach(fn)}
 
 /* ---------- buttons: light ring, glint, arrow nudge ---------- */
@@ -16,13 +18,13 @@ each('.button.primary, .button.platform-register, .hero-v2 .button',function(b,i
 });
 
 /* ---------- cards: border light follows the pointer ---------- */
-each('.value-grid article, .process-grid article, .landing-video-card, .advertise-callout, .lesson-card, .module-card, .resource-card, .dashboard-card',function(c){
+each('.value-grid article, .process-grid article, .landing-video-card, .advertise-callout, .lesson-card, .module-card, .resource-card, .dashboard-card, .calculator-panel, .calculator-results, .decision-card, .community-card, .journey-summary > div',function(c){
   c.classList.add('cbm-glow');
   c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--gx',(e.clientX-r.left)+'px');c.style.setProperty('--gy',(e.clientY-r.top)+'px')});
 });
 
 /* ---------- lesson number ring ---------- */
-each('.lesson-orbit',function(o){o.classList.add('cbm-lesson-ring')});
+each('.lesson-orbit, .completion-mark, .calculator-rule-chip',function(o){o.classList.add('cbm-lesson-ring')});
 
 if(!stage){root.classList.add('cbm-go');return}
 stage.classList.add('cbm-stage');
@@ -32,7 +34,9 @@ function rise(el,delay,dur,y,blur){if(!el.animate)return;try{el.animate([{opacit
 var h1=stage.querySelector('h1'),n=0;
 if(h1&&!reduce){
   var lines=[].slice.call(h1.children).filter(function(c){return c.tagName==='SPAN'});
+  var dyn=[].slice.call(h1.attributes).some(function(a){return a.name.indexOf('data-')===0});
   if(lines.length>1){lines.forEach(function(l,i){l.classList.add('cbm-line');rise(l,250+i*170,1050,'.35em',10)});n=lines.length*170+250}
+  else if(dyn){rise(h1,200,1000,'.3em',10);n=500}
   else{h1.setAttribute('aria-label',h1.textContent.replace(/\s+/g,' ').trim());
     var walk=function(node){[].slice.call(node.childNodes).forEach(function(t){
       if(t.nodeType===3){var f=document.createDocumentFragment();t.textContent.split(/(\s+)/).forEach(function(w){if(!w)return;if(/^\s+$/.test(w)){f.appendChild(document.createTextNode(' '));return}

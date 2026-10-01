@@ -60,7 +60,8 @@ html[data-theme="light"] .cbm-spot{display:none}
 
 /* lesson number ring */
 .cbm-lesson-ring{position:relative}
-.cbm-lesson-ring:after{content:"";position:absolute;inset:-4px;border-radius:50%;padding:2px;pointer-events:none;
+.lesson-orbit.cbm-lesson-ring,.completion-mark.cbm-lesson-ring{border-radius:50%}
+.cbm-lesson-ring:after{content:"";position:absolute;inset:-4px;border-radius:inherit;padding:2px;pointer-events:none;
   background:conic-gradient(from var(--cbm-ang),transparent 0 55%,var(--cyan,#00e5ff) 75%,var(--pink,#ff00ff) 90%,transparent);
   -webkit-mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);-webkit-mask-composite:xor}
 @media (prefers-reduced-motion:no-preference){html .cbm-lesson-ring:after{animation:cbm-spin 7s linear infinite!important}}
