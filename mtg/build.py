@@ -20,7 +20,7 @@ OFFICIAL = 'https://clickbaitpays.me/?ref=mtgtraffic'
 GROUP = 'https://chat.whatsapp.com/G1LOlTWae3OKCF3mVcD6J0?s=cl&amp;p=a&amp;mlu=4&amp;ilr=4'
 YOUTUBE = 'https://www.youtube.com/@clickbaitpaysus'
 BW_GUIDE = 'https://bitcoinwealthpays.com/mtg/'
-V_ROOT = '20260925-static1'      # cache key for the shared site assets
+V_ROOT = '20261001-video1'      # cache key for the shared site assets
 V_MTG = '20261001-mtg1'           # cache key for the quick guide assets
 UPDATED = '2026-10-01'
 

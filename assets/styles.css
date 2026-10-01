@@ -1438,3 +1438,17 @@ html { scroll-behavior: auto; }
   outline: 2px solid var(--cyan);
   outline-offset: 4px;
 }
+
+/* Video cards: make every playable card read as a video at a glance */
+.landing-video-card { transition: transform .25s ease, box-shadow .25s ease; }
+.landing-video-card:has(button):hover { transform: translateY(-3px); box-shadow: 0 28px 80px rgba(0, 0, 0, .5), 0 0 44px rgba(0, 229, 255, .22), 0 0 40px rgba(255, 0, 223, .2); }
+.landing-video-card button:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+.landing-video-card button .video-thumbnail::after { content: "VIDEO"; position: absolute; top: 1rem; right: 1rem; z-index: 3; padding: .38rem .75rem .38rem 1.55rem; border: 1px solid rgba(255, 255, 255, .24); border-radius: 999px; background: radial-gradient(circle at .8rem 50%, #ff3b30 0 3.5px, rgba(255, 59, 48, .35) 4.5px, transparent 7px), rgba(4, 3, 15, .82); color: #fff; font-size: .68rem; font-weight: 800; line-height: 1; letter-spacing: .14em; backdrop-filter: blur(10px); pointer-events: none; }
+.landing-video-card button .video-play::before { content: ""; position: absolute; inset: -12px; border: 2px solid rgba(0, 229, 255, .75); border-radius: 50%; animation: cbVideoPulse 2.2s ease-out infinite; pointer-events: none; }
+@keyframes cbVideoPulse { 0% { transform: scale(.88); opacity: 1; border-color: rgba(0, 229, 255, .8); } 100% { transform: scale(1.5); opacity: 0; border-color: rgba(255, 0, 223, .6); } }
+.landing-video-card button .video-card-copy::after { content: "\25B6\00A0\00A0Play video"; display: inline-flex; align-items: center; margin-top: .7rem; padding: .55rem 1rem; border-radius: 10px; background: linear-gradient(135deg, rgba(0, 229, 255, .16), rgba(255, 0, 223, .16)); border: 1px solid rgba(0, 229, 255, .5); color: #fff; font-size: .85rem; font-weight: 800; line-height: 1; letter-spacing: .02em; transition: background .2s ease, box-shadow .2s ease; }
+.landing-video-card button:hover .video-card-copy::after { background: linear-gradient(135deg, #00c8e6, #d400c8); border-color: transparent; box-shadow: 0 0 22px rgba(0, 229, 255, .35); }
+@media (prefers-reduced-motion: reduce) {
+  .landing-video-card button .video-play::before { animation: none; }
+  .landing-video-card:has(button):hover { transform: none; }
+}

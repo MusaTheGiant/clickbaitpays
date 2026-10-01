@@ -13,7 +13,7 @@
       "socialDescription": "Understand ClickBaitPays, learn the model, and choose your next step with confidence.",
       "socialImage": "assets/social/home.png",
       "socialImageAlt": "Earn While You Advertise, a ClickBaitPaysUs learning guide by MTG",
-      "htmlSha256": "9414bb76f40d9381a78c75673053a8d48dd42961d11a82d8de07854227cf7884"
+      "htmlSha256": "bcc500ebe4b36f09501bc583eae213a0af38db112268f7fce6d9155a9889e9ed"
     },
     "dashboard.html": {
       "canonical": "https://clickbaitpaysus.com/dashboard.html",
@@ -24,7 +24,7 @@
       "socialDescription": "Eleven guided lessons, practical tools, progress tracking, and one clear path forward.",
       "socialImage": "assets/social/dashboard.png",
       "socialImageAlt": "ClickBaitPays learning dashboard with 11 guided lessons",
-      "htmlSha256": "e7c2c41cacebcbc4d32e983c50f31702b1a301444f17335168d655d648220835"
+      "htmlSha256": "769e22f59797adbb2bc9f0129f92f7101b8cc3e3cb56a7b9a2a792b4cb135864"
     },
     "start-here.html": {
       "canonical": "https://clickbaitpaysus.com/start-here.html",
@@ -35,7 +35,7 @@
       "socialDescription": "Build practical understanding one focused lesson at a time.",
       "socialImage": "assets/social/start-here.png",
       "socialImageAlt": "Start the free 11-lesson ClickBaitPays learning journey",
-      "htmlSha256": "dc2c2feaf9ebd3ee028cccc14f1747779b53470c494225015d835b29ad1515fd"
+      "htmlSha256": "10679cd88c4a620f2576b0c5443b250aa1e6ab7a57ffd8673f0c5990c461cbfd"
     },
     "what-is-clickbaitpays.html": {
       "canonical": "https://clickbaitpaysus.com/what-is-clickbaitpays.html",
@@ -46,7 +46,7 @@
       "socialDescription": "Understand the advertising model, the participants, and the value exchange.",
       "socialImage": "assets/social/lesson-01.png",
       "socialImageAlt": "Lesson 1 explaining what ClickBaitPays is",
-      "htmlSha256": "7b120bb87985ffcd15cff9d8ed228b75d392bb1904c70e02047dd09a4e8a660c"
+      "htmlSha256": "204fb79a2db80926688eae4954d44758b5ebbeddad19ae5c949c6103e56086cd"
     },
     "how-clickbaitpays-works.html": {
       "canonical": "https://clickbaitpaysus.com/how-clickbaitpays-works.html",
@@ -57,7 +57,7 @@
       "socialDescription": "Follow the five clear stages from account creation to your next move.",
       "socialImage": "assets/social/lesson-02.png",
       "socialImageAlt": "Lesson 2 showing how ClickBaitPays works in five steps",
-      "htmlSha256": "8d4a3e542069c168ba721540280ae9b465f60131d853b4a98e218aad9d7eff26"
+      "htmlSha256": "b53b5812c3cc4a584efcbf78298adf4ac6806a431218968d868b841c5dba69e0"
     },
     "advertiser-viewer-benefits.html": {
       "canonical": "https://clickbaitpaysus.com/advertiser-viewer-benefits.html",
@@ -68,7 +68,7 @@
       "socialDescription": "See how attention moves from campaign placement to participating viewers.",
       "socialImage": "assets/social/lesson-03.png",
       "socialImageAlt": "Lesson 3 about web traffic, advertisers, and viewers",
-      "htmlSha256": "65f71478d2be37bb9aee49c7db7c5638f04e9d65c528781be9fb84acf9fe10fe"
+      "htmlSha256": "f42b2dbc4566a6b5c97b4ebebdb9a01ac234dda02318b06b8fa50d91c35b3886"
     },
     "platform-sustainability.html": {
       "canonical": "https://clickbaitpaysus.com/platform-sustainability.html",
@@ -79,7 +79,7 @@
       "socialDescription": "Explore how revenue, activity, structural controls, and risk work together.",
       "socialImage": "assets/social/lesson-04.png",
       "socialImageAlt": "Lesson 4 explaining ClickBaitPays platform sustainability",
-      "htmlSha256": "46c5be401b3da08101b00aa5a6eb5a782e8796bf07ee8a97bc746bb8b616fb69"
+      "htmlSha256": "5b3314b13634a4ffe35b5e4dafac1f8bc9604072cb886dab9b7711ed760b9702"
     },
     "campaign-levels.html": {
       "canonical": "https://clickbaitpaysus.com/campaign-levels.html",
@@ -90,7 +90,7 @@
       "socialDescription": "Compare campaign size, activation, daily activity, completion, and level-specific ad visibility before choosing a level.",
       "socialImage": "assets/social/lesson-05.png",
       "socialImageAlt": "Lesson 5 comparing ClickBaitPays campaign Levels 1 through 7",
-      "htmlSha256": "a4f35d0a1344e3bc96ff60838a635bb33cfd18b8992a59b878e3f1301b62493f"
+      "htmlSha256": "6f7f4259eba0461381bd82dbe97701888f2051213baecdb33631f3449abde065"
     },
     "daily-clicks-earnings.html": {
       "canonical": "https://clickbaitpaysus.com/daily-clicks-earnings.html",
@@ -101,7 +101,7 @@
       "socialDescription": "Connect daily activity, campaign completion, the hold period, and Available Balance.",
       "socialImage": "assets/social/lesson-06.png",
       "socialImageAlt": "Lesson 6 explaining daily clicks and the earnings lifecycle",
-      "htmlSha256": "16b4efb9fb7149b9a64b94f6254bc4d805d1e8647b5bbea61ea8d5c24faffd86"
+      "htmlSha256": "baf49f915d2340df1b7de84e0e89923d2a84a7277691c882e3fd01ad89430822"
     },
     "referral-rewards.html": {
       "canonical": "https://clickbaitpaysus.com/referral-rewards.html",
@@ -112,7 +112,7 @@
       "socialDescription": "Understand the optional one-level structure and responsible community growth.",
       "socialImage": "assets/social/lesson-07.png",
       "socialImageAlt": "Lesson 7 explaining ClickBaitPays direct referral rewards",
-      "htmlSha256": "75a08d4a496c0f6bdf0abf12ad4cd0c317c63a29e18eeee2641c09fedcde8501"
+      "htmlSha256": "33e2448362b29ec60944852f1b4270e860ce2681bde927e526041cffc984a9b9"
     },
     "staggered-campaign-strategy.html": {
       "canonical": "https://clickbaitpaysus.com/staggered-campaign-strategy.html",
@@ -123,7 +123,7 @@
       "socialDescription": "Plan campaign timing around your budget, workload, and current platform rules.",
       "socialImage": "assets/social/lesson-08.png",
       "socialImageAlt": "Lesson 8 explaining a staggered ClickBaitPays campaign strategy",
-      "htmlSha256": "8eb282bd058dd03c5f1fe2492f421205839bb90ee1ea017ae7cd14e67f94ab49"
+      "htmlSha256": "7796773c79534f312961f1bd1c728955d1ebeec7138e9a6df6ed7ea7e4f2f43f"
     },
     "crypto-deposits-withdrawals.html": {
       "canonical": "https://clickbaitpaysus.com/crypto-deposits-withdrawals.html",
@@ -134,7 +134,7 @@
       "socialDescription": "Use careful asset, network, address, fee, and transaction checks every time.",
       "socialImage": "assets/social/lesson-09.png",
       "socialImageAlt": "Lesson 9 about safe crypto deposits and withdrawals",
-      "htmlSha256": "40c9f19eab8feaf2b4ea519abe4612dba497bb37446ba8dd1e68ad3e5fcfc277"
+      "htmlSha256": "21b5a71cdbcbe524b835b403ca91d875cbd6265f639f51ff46a9d7c88c034611"
     },
     "back-office-walkthrough.html": {
       "canonical": "https://clickbaitpaysus.com/back-office-walkthrough.html",
@@ -145,7 +145,7 @@
       "socialDescription": "Find campaign, wallet, history, withdrawal, and support tools with confidence.",
       "socialImage": "assets/social/lesson-10.png",
       "socialImageAlt": "Lesson 10 ClickBaitPays back office walkthrough",
-      "htmlSha256": "525d032af731c5a66c6e077ffc9769ed83f84f4841b5272efa1380e114769286"
+      "htmlSha256": "98a336e4eb8579006cb1a4c4c9b66143fae7e2bbf78252a12f0da2fe6d44251f"
     },
     "account-rules-safety.html": {
       "canonical": "https://clickbaitpaysus.com/account-rules-safety.html",
@@ -156,7 +156,7 @@
       "socialDescription": "Protect your account with clear household, connection, activity, and security rules.",
       "socialImage": "assets/social/lesson-11.png",
       "socialImageAlt": "Lesson 11 ClickBaitPays account rules and safety guide",
-      "htmlSha256": "c476bacbad9648115c99752d422cb0a2a8ccd1e1b67022375e4bb8c76f74292e"
+      "htmlSha256": "0b14a3286f2dec52be5398a5bbe9e15ffb0acf2ed4f86ab9a017940b58f1677b"
     },
     "glossary.html": {
       "canonical": "https://clickbaitpaysus.com/glossary.html",
@@ -167,7 +167,7 @@
       "socialDescription": "Understand the advertising, traffic, campaign, referral, wallet, and safety terms.",
       "socialImage": "assets/social/glossary.png",
       "socialImageAlt": "ClickBaitPays glossary for advertising, traffic, and crypto terms",
-      "htmlSha256": "bef3571c6b81847af1ad19a17d4ecdf8dce282f5edd8f0e56a8dd2892a0d93ac"
+      "htmlSha256": "5caac135beae96f579ee3e6f3bdf901b59e9b6a079e1b4c2570f4055e6599cab"
     },
     "faq.html": {
       "canonical": "https://clickbaitpaysus.com/faq.html",
@@ -178,7 +178,7 @@
       "socialDescription": "Clear answers about Campaign Levels, ad visibility, affiliate commission, staggering, Login Ads, withdrawals, rules, and risk.",
       "socialImage": "assets/social/faq.png",
       "socialImageAlt": "ClickBaitPays frequently asked questions and clear answers",
-      "htmlSha256": "c23d6b431a065121fce10d1144d2f1bd1489ff7b70283c2985da6b6beb5cf676"
+      "htmlSha256": "a465b931a11cd106443aa631c3356b95a94a00b5140338703f69151f80fe1a05"
     },
     "action-plan.html": {
       "canonical": "https://clickbaitpaysus.com/action-plan.html",
@@ -189,7 +189,7 @@
       "socialDescription": "Move from understanding to careful, practical action at your own pace.",
       "socialImage": "assets/social/action-plan.png",
       "socialImageAlt": "Seven-step responsible ClickBaitPays action plan",
-      "htmlSha256": "3ae9476d687bd9415b7b98b54e5a598bdccbb4dc26b5852f4bdd0edaa1d53856"
+      "htmlSha256": "91ed5d93641237083c10d4393a655150ad8d8202b71eb64fefc9cc42837410d6"
     },
     "videos.html": {
       "canonical": "https://clickbaitpaysus.com/videos.html",
@@ -200,7 +200,7 @@
       "socialDescription": "Watch platform overviews, presentations, FAQ answers, and practical walkthroughs.",
       "socialImage": "assets/social/videos.png",
       "socialImageAlt": "ClickBaitPays training video library",
-      "htmlSha256": "b91cbb328fb6ab2a732ad7408f7393575f1e4c06ca58b50b06fc4658406020c5"
+      "htmlSha256": "159556fe67aab3bb158a4ea271050b5bbb958d7485ff249e33e383d4a7c21a50"
     },
     "resources.html": {
       "canonical": "https://clickbaitpaysus.com/resources.html",
@@ -211,7 +211,7 @@
       "socialDescription": "Open the Social Media Compliance guide, slides, roadmaps, reference pages, and practical learning tools.",
       "socialImage": "assets/social/resources.png",
       "socialImageAlt": "ClickBaitPays guides, slides, roadmaps, and learning resources",
-      "htmlSha256": "48ef495d1b95fd504471e022c0468c88b9bfd634fe9c9683d016673dde0aadfc"
+      "htmlSha256": "f1b6a0e277b47e473c3a7c32b1a4697296e41b3dc7261656acec63e75d17c2bd"
     },
     "completion.html": {
       "canonical": "https://clickbaitpaysus.com/completion.html",
@@ -222,7 +222,7 @@
       "socialDescription": "Celebrate what you learned, review your progress, and choose an informed next step.",
       "socialImage": "assets/social/completion.png",
       "socialImageAlt": "ClickBaitPays learning journey completion celebration",
-      "htmlSha256": "784739e978ea77103a8b7fc24c467ccf9367d185732997c2e7ffff83d91e2204"
+      "htmlSha256": "fb568da45e21c674901bec6cf0efe287edd9a7ede6249540a6779c12459c1132"
     },
     "about.html": {
       "canonical": "https://clickbaitpaysus.com/about.html",
@@ -233,7 +233,7 @@
       "socialDescription": "Experience-led ClickBaitPays education created by MTG for everyday learners.",
       "socialImage": "assets/social/about.png",
       "socialImageAlt": "About ClickBaitPaysUs and MTG, Your Digital Architect",
-      "htmlSha256": "e4b8d30d9302f489e57c1b323c47b4171309f45b02c3c8d08d5cac07f2e8ad44"
+      "htmlSha256": "19a33691bbc2e3b73b76b986d96961c8476d99c354283a37f39b6bea84b23ed7"
     },
     "contact.html": {
       "canonical": "https://clickbaitpaysus.com/contact.html",
@@ -244,7 +244,7 @@
       "socialDescription": "Join the learning community, watch on YouTube, or ask for guidance.",
       "socialImage": "assets/social/contact.png",
       "socialImageAlt": "Contact MTG through the ClickBaitPaysUs learning community",
-      "htmlSha256": "8c5f80106b409bf947645a223144f4dabbc94126eea1c39aa8e25dc93315b710"
+      "htmlSha256": "cc4f55d394d833666aa5d8494e570e55c8bcdd40829f52c181e3c338ebb51b76"
     },
     "earnings-disclaimer.html": {
       "canonical": "https://clickbaitpaysus.com/earnings-disclaimer.html",
@@ -255,7 +255,7 @@
       "socialDescription": "Examples support understanding. Results vary and earnings are never guaranteed.",
       "socialImage": "assets/social/earnings-disclaimer.png",
       "socialImageAlt": "ClickBaitPaysUs earnings disclaimer and no-guarantee notice",
-      "htmlSha256": "1375371b2a55b91c98506467dfd6f89a2ad133bec5c2295407c13cf62f8f4c6c"
+      "htmlSha256": "fb6812f22bd669c2970ce7ac8e727bb3f28ff9d93706c0f8cf050a62ea568ad6"
     },
     "risk-disclaimer.html": {
       "canonical": "https://clickbaitpaysus.com/risk-disclaimer.html",
@@ -266,7 +266,7 @@
       "socialDescription": "Understand platform, operational, cryptocurrency, wallet, and participation risks.",
       "socialImage": "assets/social/risk-disclaimer.png",
       "socialImageAlt": "ClickBaitPaysUs risk disclaimer and responsible participation notice",
-      "htmlSha256": "4daf675e0fa20890330660789a213df4c2732cae8849bc8907e5f6e92e28d8d1"
+      "htmlSha256": "96c47b1820ee3af1ad68131c6457fca3330db7092c72f5b5d4dbb4871af28a92"
     },
     "affiliate-disclosure.html": {
       "canonical": "https://clickbaitpaysus.com/affiliate-disclosure.html",
@@ -277,7 +277,7 @@
       "socialDescription": "See how MTG may benefit from qualifying activity through clearly identified referral links.",
       "socialImage": "assets/social/affiliate-disclosure.png",
       "socialImageAlt": "ClickBaitPaysUs affiliate disclosure explaining MTG's relationship",
-      "htmlSha256": "48650d228b57380fa2523886aa4673459046a0e6ff6612ccac342000519f3f10"
+      "htmlSha256": "938083dc6bc0bfef659e4ff756b66b01cf4483e917b6802a81eb111db4bbd635"
     },
     "privacy.html": {
       "canonical": "https://clickbaitpaysus.com/privacy.html",
@@ -288,7 +288,7 @@
       "socialDescription": "Understand device-local learning progress and the website's minimal data footprint.",
       "socialImage": "assets/social/privacy.png",
       "socialImageAlt": "ClickBaitPaysUs privacy notice for device-local learning",
-      "htmlSha256": "4ac9625c049291e9eb3c63521d0af284247cb17f371b6f17366cf33f6935e082"
+      "htmlSha256": "863e5138fa01a6f4ee65d71e23f66754663060497e7c429e0642be201985eb66"
     },
     "profit-calculator.html": {
       "canonical": "https://clickbaitpaysus.com/profit-calculator.html",
@@ -299,7 +299,7 @@
       "socialDescription": "Plan up to three simultaneous or staggered campaigns and estimate capital, returns, profit, ROI and dates.",
       "socialImage": "assets/social/profit-calculator.png",
       "socialImageAlt": "ClickBaitPays Profit Calculator for planning campaign returns, profit, ROI and dates",
-      "htmlSha256": "ace36bbe4dfa762aa2e6fa1d307b34fc73a01cb913ab7132cad2a8651ec07341"
+      "htmlSha256": "5a2b5d9d17834241ae0fe2a209b8c502f5bb24cd42f240af84065c0e22facf30"
     },
     "404.html": {
       "canonical": "https://clickbaitpaysus.com/404.html",
@@ -310,7 +310,7 @@
       "socialDescription": null,
       "socialImage": null,
       "socialImageAlt": null,
-      "htmlSha256": "2a210d739c93017e42aad4d5fef9fd2881a3a6bc8a90091f6f94de19626ca19c"
+      "htmlSha256": "6003f1509a717ef2bbc82630156d31e04fe586f2be5fde65082bedd81c89567a"
     },
     "tutorials.html": {
       "canonical": "https://clickbaitpaysus.com/tutorials.html",
@@ -321,7 +321,7 @@
       "socialDescription": "Follow seven practical ClickBaitPays walkthroughs covering registration, deposits, campaigns, daily ads, withdrawals, the dashboard and Login Ads.",
       "socialImage": "assets/social/tutorials.png",
       "socialImageAlt": "Seven beginner-friendly ClickBaitPays tutorial walkthroughs",
-      "htmlSha256": "31dea79917f522d125ab425f8d78156338af9a9badc80d1881a628746c8d4e98"
+      "htmlSha256": "0602d2f5a62e69a90204f6d40fd23fb80fc3e05318e1c1c7cae1b2b2878677f8"
     }
   }
 }
