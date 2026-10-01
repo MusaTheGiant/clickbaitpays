@@ -18,7 +18,7 @@ each('.button.primary, .button.platform-register, .hero-v2 .button',function(b,i
 });
 
 /* ---------- cards: border light follows the pointer ---------- */
-each('.value-grid article, .process-grid article, .landing-video-card, .advertise-callout, .lesson-card, .module-card, .resource-card, .dashboard-card, .calculator-panel, .calculator-results, .decision-card, .community-card, .journey-summary > div',function(c){
+each('.value-grid article, .process-grid article, .landing-video-card, .advertise-callout, .lesson-card, .module-card, .resource-card, .dashboard-card, .calculator-panel, .calculator-results, .decision-card, .community-card, .journey-summary > div, .mtg-card, .mtg-panel',function(c){
   c.classList.add('cbm-glow');
   c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--gx',(e.clientX-r.left)+'px');c.style.setProperty('--gy',(e.clientY-r.top)+'px')});
 });

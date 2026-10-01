@@ -29,3 +29,16 @@ Language: English
 - The current rule used by the calculator is a maximum of three active campaigns total per account, regardless of level combination.
 - Earnings, profit and withdrawals are not guaranteed.
 - Visitors should verify current platform terms before participating.
+
+## ClickBaitPays Quick Guide (for busy people and team builders)
+
+A short, action-focused version of this website by MTG at https://clickbaitpaysus.com/mtg/. Sitemap: https://clickbaitpaysus.com/mtg/sitemap.xml
+
+- [Quick Guide home](https://clickbaitpaysus.com/mtg/): ClickBaitPays explained in about 10 minutes: five-step campaign cycle, all 7 campaign levels, key rules and where platform revenue comes from.
+- [Video Tutorials](https://clickbaitpaysus.com/mtg/video-tutorials/): Overview, income and commission plan, back office walkthrough and the 14 September 2026 presentation, in viewing order.
+- [Profit Calculator](https://clickbaitpaysus.com/mtg/profit-calculator/): Plan up to three simultaneous or staggered campaigns and estimate capital, listed member amounts, profit, ROI and dates.
+- [FAQ](https://clickbaitpaysus.com/mtg/faq/): 23 straight answers grouped by basics, campaigns and withdrawals, referrals and team building, and advertising and sustainability.
+- [Glossary](https://clickbaitpaysus.com/mtg/glossary/): ClickBaitPays, advertising and crypto terms in plain English.
+- [Request a Copy](https://clickbaitpaysus.com/mtg/request-a-copy/): A personalized copy of the Quick Guide with your own referral link, profile image and contact links for a one-time 32 USDT (TRC-20), hosting on clickbaitpaysus.com and lifetime updates included.
+
+Key facts used in the Quick Guide: registration is free; Level 1 costs 14 USDT for the first campaign; a maximum of three active campaigns total per account; 12 click days followed by a fixed seven-day hold; 10% withdrawal fee with one request per week; optional 10% direct commission on clicks completed by direct referrals; up to three household accounts with the same original sponsor.
