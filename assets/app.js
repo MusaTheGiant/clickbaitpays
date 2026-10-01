@@ -402,3 +402,9 @@
   updateProgress();
 })();
 
+/* Pause the ambient background animation while the tab is hidden, to save battery. */
+function syncAmbientMotion() {
+  document.documentElement.classList.toggle("ambient-paused", document.hidden);
+}
+document.addEventListener("visibilitychange", syncAmbientMotion);
+syncAmbientMotion();

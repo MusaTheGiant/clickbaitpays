@@ -1,0 +1,81 @@
+/* ClickBaitPays premium motion layer. Cyan #00e5ff, violet #a45cff, pink #ff00ff.
+   Restrained by design: no section reveals and no headline light sweep. */
+@property --cbm-ang{syntax:'<angle>';initial-value:0deg;inherits:false}
+
+.cbm-stage{position:relative;isolation:isolate}
+.cbm-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;opacity:0;transition:opacity 2s ease .2s;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.25) 38%,#000 70%);mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.25) 38%,#000 70%)}
+.cbm-go .cbm-canvas{opacity:1}
+html[data-theme="light"] .cbm-go .cbm-canvas{opacity:.55}
+.cbm-spot{position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:0;transition:opacity 1.2s;
+  background:radial-gradient(380px circle at var(--mx,70%) var(--my,40%),rgba(0,229,255,.06),transparent 60%),
+   linear-gradient(rgba(0,229,255,.18) 1px,transparent 1px) 0 0/56px 56px,linear-gradient(90deg,rgba(255,0,255,.14) 1px,transparent 1px) 0 0/56px 56px;
+  -webkit-mask-image:radial-gradient(220px circle at var(--mx,70%) var(--my,40%),#000,transparent 75%);mask-image:radial-gradient(220px circle at var(--mx,70%) var(--my,40%),#000,transparent 75%)}
+.cbm-go .cbm-spot{opacity:1}
+html[data-theme="light"] .cbm-spot{display:none}
+
+/* eyebrow decode */
+.cbm-dec .sc{color:var(--pink,#ff00ff);opacity:.7}
+
+/* headline entrance runs in motion.js via the Web Animations API, so the site-wide static rule cannot cancel it */
+.cbm-line{display:block}
+.cbm-word{display:inline-block}
+
+@media (prefers-reduced-motion:no-preference){
+  html .cbm-glow:after,html .cbm-canvas,html .cbm-spot{transition-property:opacity!important;transition-duration:.3s!important}
+  html .cbm-canvas{transition-duration:2s!important}
+}
+
+/* activity loop: each step lights up as the pink pulse passes it */
+@media (prefers-reduced-motion:no-preference){
+  html.cbm-go .command-loop .loop-pulse{animation:loop-orbit 8s linear infinite!important}
+  html.cbm-go .command-loop .loop-node{animation:cbm-node 8s linear infinite!important}
+  html.cbm-go .command-loop .loop-click{animation-delay:0s!important}
+  html.cbm-go .command-loop .loop-watch{animation-delay:1.6s!important}
+  html.cbm-go .command-loop .loop-earn{animation-delay:3.2s!important}
+  html.cbm-go .command-loop .loop-withdraw{animation-delay:4.8s!important}
+  html.cbm-go .command-loop .loop-repeat{animation-delay:6.4s!important}
+  html.cbm-go .command-loop .loop-center{animation:cbm-core 1.6s ease-in-out infinite!important}
+}
+@keyframes cbm-node{0%,14%,100%{box-shadow:none;filter:none}3%{box-shadow:0 0 0 1px rgba(255,255,255,.55),0 0 26px rgba(0,229,255,.75),0 0 46px rgba(255,0,255,.45);filter:brightness(1.35)}}
+@keyframes cbm-core{50%{box-shadow:0 0 0 1px rgba(0,229,255,.35),0 0 34px rgba(0,229,255,.35),0 0 60px rgba(255,0,255,.2)}}
+
+/* buttons: slow cyan to pink light ring, glint, arrow nudge */
+.cbm-ring{position:relative;isolation:isolate}
+.cbm-ring:before{content:"";position:absolute;inset:-3px;padding:2px;border-radius:inherit;pointer-events:none;z-index:1;
+  background:conic-gradient(from var(--cbm-ang),transparent 0 58%,#b8fbff 72%,var(--cyan,#00e5ff) 80%,var(--pink,#ff00ff) 89%,transparent 97%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);-webkit-mask-composite:xor}
+.cbm-glint{overflow:hidden}
+.cbm-glint .cbm-gl{position:absolute;top:0;bottom:0;left:-60%;width:40%;pointer-events:none;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-18deg)}
+@media (prefers-reduced-motion:no-preference){
+  html .cbm-ring:before{animation:cbm-spin 6s linear infinite!important}
+  html .cbm-ring.cbm-alt:before{animation-delay:-3s!important}
+  html.cbm-go .cbm-gl{animation:cbm-glint 6.5s ease-in-out 2.4s infinite!important}
+  html .cbm-ring.cbm-alt .cbm-gl{animation-delay:5.6s!important}
+  html .cbm-arr{display:inline-block;animation:cbm-nudge 2.6s ease-in-out infinite!important}
+}
+@keyframes cbm-spin{to{--cbm-ang:360deg}}
+@keyframes cbm-glint{0%{left:-60%}22%,100%{left:130%}}
+@keyframes cbm-nudge{0%,55%,100%{transform:none}25%{transform:translateX(5px)}}
+
+/* lesson number ring */
+.cbm-lesson-ring{position:relative}
+.cbm-lesson-ring:after{content:"";position:absolute;inset:-4px;border-radius:50%;padding:2px;pointer-events:none;
+  background:conic-gradient(from var(--cbm-ang),transparent 0 55%,var(--cyan,#00e5ff) 75%,var(--pink,#ff00ff) 90%,transparent);
+  -webkit-mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);-webkit-mask-composite:xor}
+@media (prefers-reduced-motion:no-preference){html .cbm-lesson-ring:after{animation:cbm-spin 7s linear infinite!important}}
+
+/* cards: border light follows the pointer */
+.cbm-glow{position:relative}
+.cbm-glow:after{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;pointer-events:none;opacity:0;transition:opacity .3s;
+  background:radial-gradient(260px circle at var(--gx,50%) var(--gy,50%),rgba(0,229,255,.95),rgba(255,0,255,.55) 40%,transparent 70%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);-webkit-mask-composite:xor}
+.cbm-glow:hover:after{opacity:1}
+
+/* background aurora pauses while the tab is hidden */
+html.ambient-paused body::before,html.ambient-paused body::after,html.ambient-paused .hero-v2::before{animation-play-state:paused!important}
+
+@media (max-width:760px){.cbm-spot{display:none}.cbm-canvas{-webkit-mask-image:linear-gradient(180deg,#000 0,rgba(0,0,0,.25) 45%,transparent 70%);mask-image:linear-gradient(180deg,#000 0,rgba(0,0,0,.25) 45%,transparent 70%)}}
+@media (prefers-reduced-motion:reduce){
+  .cbm-canvas,.cbm-spot{display:none}
+}
