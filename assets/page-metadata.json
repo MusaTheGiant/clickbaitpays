@@ -35,7 +35,7 @@
       "socialDescription": "Build practical understanding one focused lesson at a time.",
       "socialImage": "assets/social/start-here.png",
       "socialImageAlt": "Start the free 11-lesson ClickBaitPays learning journey",
-      "htmlSha256": "10679cd88c4a620f2576b0c5443b250aa1e6ab7a57ffd8673f0c5990c461cbfd"
+      "htmlSha256": "aa4ae34ff152a92b1debd1a082eddec7560947740ab3cd31a18bdc78b68a2419"
     },
     "what-is-clickbaitpays.html": {
       "canonical": "https://clickbaitpaysus.com/what-is-clickbaitpays.html",
@@ -79,7 +79,7 @@
       "socialDescription": "Explore how revenue, activity, structural controls, and risk work together.",
       "socialImage": "assets/social/lesson-04.png",
       "socialImageAlt": "Lesson 4 explaining ClickBaitPays platform sustainability",
-      "htmlSha256": "5b3314b13634a4ffe35b5e4dafac1f8bc9604072cb886dab9b7711ed760b9702"
+      "htmlSha256": "bdb4233c820b2af2dd0debe8696f4895b4e1b291c518793b6510ea8ab6ab1cfb"
     },
     "campaign-levels.html": {
       "canonical": "https://clickbaitpaysus.com/campaign-levels.html",
@@ -107,12 +107,12 @@
       "canonical": "https://clickbaitpaysus.com/referral-rewards.html",
       "indexable": true,
       "seoTitle": "ClickBaitPays Direct Referral Rewards Explained",
-      "description": "Understand the optional one-level ClickBaitPays referral structure, direct sponsor relationships, activity-linked rewards, and responsible sharing.",
+      "description": "Understand the optional one-level ClickBaitPays referral structure, direct sponsor relationships, the 10% campaign purchase commission, and responsible sharing.",
       "socialTitle": "Lesson 7: Direct Referral Rewards",
       "socialDescription": "Understand the optional one-level structure and responsible community growth.",
       "socialImage": "assets/social/lesson-07.png",
       "socialImageAlt": "Lesson 7 explaining ClickBaitPays direct referral rewards",
-      "htmlSha256": "33e2448362b29ec60944852f1b4270e860ce2681bde927e526041cffc984a9b9"
+      "htmlSha256": "e4465d34c88a0d874807f47b726c6b76d3c5f806528fa977418e3a8d0f67be26"
     },
     "staggered-campaign-strategy.html": {
       "canonical": "https://clickbaitpaysus.com/staggered-campaign-strategy.html",
@@ -178,7 +178,7 @@
       "socialDescription": "Clear answers about Campaign Levels, ad visibility, affiliate commission, staggering, Login Ads, withdrawals, rules, and risk.",
       "socialImage": "assets/social/faq.png",
       "socialImageAlt": "ClickBaitPays frequently asked questions and clear answers",
-      "htmlSha256": "a465b931a11cd106443aa631c3356b95a94a00b5140338703f69151f80fe1a05"
+      "htmlSha256": "89cb07895a37753dc41217149d8f557049b0be7c88e5da8480589aaf49644b41"
     },
     "action-plan.html": {
       "canonical": "https://clickbaitpaysus.com/action-plan.html",

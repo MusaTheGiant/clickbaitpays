@@ -141,7 +141,7 @@ def register_panel(up, heading='Ready to start? Register free.', intro=None):
       <div class="mtg-ref"><code data-referral-url>{REG}</code><button type="button" data-copy-referral aria-label="Copy the ClickBaitPays registration link">Copy Link</button></div>
       <p class="mtg-status" data-copy-status role="status" aria-live="polite"></p>
       <div class="button-row"><a class="button platform-register" href="{REG}" data-register target="_blank" rel="sponsored noopener">Create My Free Account <span aria-hidden="true">→</span></a><a class="button whatsapp" href="https://wa.me/27721714626" data-whatsapp target="_blank" rel="noopener">Ask Me on WhatsApp</a></div>
-      <p class="mtg-fine">This is a referral link. If you register through it, the person sharing this page may earn the 10% direct commission ClickBaitPays pays on a referred member's completed ad clicks. Earnings are not guaranteed and participation involves risk.</p>
+      <p class="mtg-fine">This is a referral link. If you register through it, the person sharing this page may earn the 10% direct commission ClickBaitPays pays on the Ad Campaigns a referred member purchases. Earnings are not guaranteed and participation involves risk.</p>
     </div>
     <ul class="mtg-rules" aria-label="Before you register">
       <li><strong>Free to register</strong><span>Paid activity starts only when you buy an Ad Campaign.</span></li>
@@ -293,7 +293,7 @@ home_body = f'''<main id="main">
       <li><strong>3 active campaigns</strong><span>The maximum per account at one time, in any level combination.</span></li>
       <li><strong>12 + 7 days</strong><span>Twelve click days, then a fixed seven-day hold before release.</span></li>
       <li><strong>10% withdrawal fee</strong><span>One request per week, fulfilled manually, stated as within 48 hours.</span></li>
-      <li><strong>10% direct commission</strong><span>On the ad clicks your direct referrals complete. Referring is optional.</span></li>
+      <li><strong>10% direct commission</strong><span>On the purchase price of each Ad Campaign your direct referrals buy, paid instantly. Referring is optional.</span></li>
       <li><strong>3 household accounts</strong><span>For different adults, all with the same original sponsor.</span></li>
       <li><strong>Manual participation</strong><span>You complete your own daily ads. Check every crypto address and network.</span></li>
     </ul>
