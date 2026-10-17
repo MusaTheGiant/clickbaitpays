@@ -1452,3 +1452,46 @@ html { scroll-behavior: auto; }
   .landing-video-card button .video-play::before { animation: none; }
   .landing-video-card:has(button):hover { transform: none; }
 }
+
+/* =====================================================================
+   MTG Dashboard Standard (shared with every MTG dashboard on MusaTheGiant.com)
+   - laptops and desktops: the edge pill collapses or expands the side menu and
+     the lessons widen; the choice is remembered between visits
+   - tablets and phones: the same pill and the menu button open the drawer
+   - 🏡 GO HOME and DASHBOARD buttons wear the cyan to pink light ring
+   ===================================================================== */
+.side-pill{display:grid;place-items:center;position:fixed;z-index:160;top:50%;margin-top:-34px;left:302px;width:36px;height:68px;padding:0;border-radius:18px;border:1px solid rgba(0,229,255,.55);background:#0b0618;color:var(--cyan);cursor:pointer;-webkit-tap-highlight-color:transparent;box-shadow:0 6px 18px rgba(0,0,0,.55),0 0 0 4px rgba(0,229,255,.08),0 0 18px rgba(255,0,255,.12);transition:left .38s cubic-bezier(.2,.7,.2,1),width .38s cubic-bezier(.2,.7,.2,1),border-radius .38s cubic-bezier(.2,.7,.2,1),background .2s,color .2s,box-shadow .2s}
+.side-pill svg{width:20px;height:20px;transition:transform .38s cubic-bezier(.2,.7,.2,1)}
+.side-pill:hover{background:linear-gradient(160deg,var(--cyan),#7b5cff 55%,var(--pink));color:#080212;box-shadow:0 6px 18px rgba(0,0,0,.55),0 0 0 4px rgba(0,229,255,.2),0 0 24px rgba(0,229,255,.45)}
+.side-pill:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.side-pill[aria-expanded="false"]{left:0;width:30px;border-radius:0 18px 18px 0;border-left-color:transparent}
+.side-pill[aria-expanded="false"] svg{transform:rotate(180deg)}
+@media (min-width:1181px){
+  .dashboard-sidebar{transition:transform .38s cubic-bezier(.2,.7,.2,1),opacity .25s,visibility 0s}
+  .dashboard-shell{transition:margin-left .38s cubic-bezier(.2,.7,.2,1)}
+  body.side-off .dashboard-sidebar{transform:translateX(-104%);opacity:0;visibility:hidden;transition:transform .38s cubic-bezier(.2,.7,.2,1),opacity .2s,visibility 0s .38s}
+  body.side-off .dashboard-shell{margin-left:0}
+}
+@media (max-width:1180px){
+  .side-pill{left:calc(min(88vw,340px) - 16px);width:32px}
+  .side-pill[aria-expanded="false"]{left:0;width:15px;border-radius:0 12px 12px 0}
+  .side-pill[aria-expanded="false"] svg{width:14px;height:14px;margin-left:-2px}
+}
+html:not(.side-ready) .dashboard-sidebar,html:not(.side-ready) .dashboard-shell,html:not(.side-ready) .side-pill,html:not(.side-ready) .side-pill svg{transition:none!important}
+html[data-theme="light"] .side-pill{background:#ffffff;box-shadow:0 6px 18px rgba(16,30,60,.18),0 0 0 4px rgba(0,229,255,.12)}
+
+/* 🏡 GO HOME and DASHBOARD buttons */
+.go-home{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;min-height:44px;padding:.55rem .9rem;border:1px solid rgba(0,229,255,.38);border-radius:10px;background:rgba(0,229,255,.06);color:var(--text);font:700 .74rem 'Orbitron',sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;white-space:nowrap;transition:transform .2s,background .2s,border-color .2s}
+.go-home:hover{transform:translateY(-2px);background:rgba(0,229,255,.12);border-color:rgba(0,229,255,.7)}
+.go-home:active{transform:translateY(1px) scale(.985)}
+.go-home:focus-visible{outline:3px solid var(--cyan);outline-offset:4px}
+.go-home .emo,.dash-btn .emo{font-size:1rem;line-height:1;letter-spacing:0;display:inline-block;transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
+.go-home:hover .emo,.dash-btn:hover .emo{transform:translateY(-2px) rotate(-8deg) scale(1.12)}
+.dash-btn{gap:.45rem}
+.sidebar-gohome{width:100%;margin:auto 0 0}
+.sidebar-gohome + .sidebar-bottom{margin-top:0;padding-top:.85rem}
+.dashboard-sidebar .sidebar-community{margin-bottom:.9rem}
+@media (max-width:640px){.topbar-actions .go-home{padding-inline:.6rem;font-size:.66rem}}
+@media (max-width:430px){.topbar-actions .go-home .tx{display:none}.topbar-actions .go-home{width:44px;padding:0}}
+@media (prefers-reduced-motion:reduce){.side-pill,.side-pill svg,.dashboard-sidebar,.dashboard-shell{transition:none!important}.go-home:hover,.go-home:active,.go-home:hover .emo,.dash-btn:hover .emo{transform:none}}
+@media print{.side-pill{display:none!important}}

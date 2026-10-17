@@ -164,13 +164,46 @@
     dashboardMenuButton?.setAttribute("aria-expanded", "false");
     dashboardSidebar?.classList.remove("open");
     document.body.classList.remove("sidebar-open");
+    if (typeof syncSidePill === "function") syncSidePill();
   };
-  dashboardMenuButton?.addEventListener("click", () => {
-    const open = dashboardMenuButton.getAttribute("aria-expanded") === "true";
-    dashboardMenuButton.setAttribute("aria-expanded", String(!open));
+  /* MTG Dashboard Standard: edge pill collapses the menu on laptops and desktops (remembered),
+     and opens the drawer on tablets and phones, exactly like the menu button */
+  const sidePill = document.querySelector(".side-pill");
+  const wideMenu = window.matchMedia("(min-width: 1181px)");
+  const sideKey = "mtg-side";
+  const syncSidePill = () => {
+    const open = wideMenu.matches ? !document.body.classList.contains("side-off") : Boolean(dashboardSidebar?.classList.contains("open"));
+    if (sidePill) {
+      const label = open ? "Collapse menu" : "Expand menu";
+      sidePill.setAttribute("aria-expanded", String(open));
+      sidePill.setAttribute("aria-label", label);
+      sidePill.title = label;
+    }
+    if (wideMenu.matches) dashboardSidebar?.toggleAttribute("inert", !open); else dashboardSidebar?.removeAttribute("inert");
+  };
+  const toggleDrawer = () => {
+    const open = dashboardMenuButton?.getAttribute("aria-expanded") === "true";
+    dashboardMenuButton?.setAttribute("aria-expanded", String(!open));
     dashboardSidebar?.classList.toggle("open", !open);
     document.body.classList.toggle("sidebar-open", !open);
+    syncSidePill();
+  };
+  dashboardMenuButton?.addEventListener("click", toggleDrawer);
+  sidePill?.addEventListener("click", () => {
+    if (!wideMenu.matches) { toggleDrawer(); return; }
+    const off = document.body.classList.toggle("side-off");
+    try { localStorage.setItem(sideKey, off ? "off" : "on"); } catch (error) { /* storage blocked: the choice lasts for this visit */ }
+    syncSidePill();
   });
+  const applySaved = () => {
+    let off = false;
+    try { off = localStorage.getItem(sideKey) === "off"; } catch (error) { off = false; }
+    document.body.classList.toggle("side-off", wideMenu.matches && off);
+    if (wideMenu.matches) closeDashboardMenu(); else syncSidePill();
+  };
+  if (wideMenu.addEventListener) wideMenu.addEventListener("change", applySaved); else if (wideMenu.addListener) wideMenu.addListener(applySaved);
+  if (dashboardSidebar) applySaved();
+  requestAnimationFrame(() => requestAnimationFrame(() => document.documentElement.classList.add("side-ready")));
   sidebarOverlay?.addEventListener("click", closeDashboardMenu);
   dashboardSidebar?.querySelectorAll("a").forEach(link => link.addEventListener("click", closeDashboardMenu));
   document.addEventListener("keydown", event => { if (event.key === "Escape") closeDashboardMenu(); });
