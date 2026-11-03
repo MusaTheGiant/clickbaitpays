@@ -19,8 +19,9 @@ REG = 'https://clickbaitpays.me/join.php?ref=mtgtraffic'
 OFFICIAL = 'https://clickbaitpays.me/?ref=mtgtraffic'
 GROUP = 'https://chat.whatsapp.com/G1LOlTWae3OKCF3mVcD6J0?s=cl&amp;p=a&amp;mlu=4&amp;ilr=4'
 YOUTUBE = 'https://www.youtube.com/@clickbaitpaysus'
+TRIBE = 'https://mtgtribe.com/group'   # MTG TRIBE WhatsApp group (3 Nov 2026), a redirect page on mtgtribe.com
 BW_GUIDE = 'https://bitcoinwealthpays.com/mtg/'
-V_ROOT = '20261001-video1'      # cache key for the shared site assets
+V_ROOT = '20261017-dash'      # cache key for the shared site assets
 V_MTG = '20261001-mtg1'           # cache key for the quick guide assets
 UPDATED = '2026-10-01'
 
@@ -128,7 +129,7 @@ VIDEO_MODAL = '''<div class="video-modal" id="video-modal" data-video-modal role
 
 
 def footer(up):
-    return f'''<footer class="landing-footer mtg-footer"><div><a class="brand" href="{up}"><img src="{up}../assets/logo.png" alt="" width="42" height="42"><span>ClickBait<span>Pays</span></span></a><p>The ClickBaitPays Quick Guide by MTG. Independent education, not the official ClickBaitPays website.</p></div><nav aria-label="Footer"><a href="{SITE}/dashboard.html">Full 11-lesson course</a><a href="{SITE}/earnings-disclaimer.html">Earnings disclaimer</a><a href="{SITE}/risk-disclaimer.html">Risk</a><a href="{SITE}/affiliate-disclosure.html">Affiliate disclosure</a><a href="{SITE}/privacy.html">Privacy</a><a class="button secondary" href="{YOUTUBE}" data-youtube target="_blank" rel="noopener">YouTube</a><a class="button secondary" href="{OFFICIAL}" target="_blank" rel="sponsored noopener">Official Website</a></nav><p>Made with ❤️ by MTG 👑 | Your Digital Architect</p></footer>
+    return f'''<footer class="landing-footer mtg-footer"><div><a class="brand" href="{up}"><img src="{up}../assets/logo.png" alt="" width="42" height="42"><span>ClickBait<span>Pays</span></span></a><p>The ClickBaitPays Quick Guide by MTG. Independent education, not the official ClickBaitPays website.</p></div><nav aria-label="Footer"><a href="{SITE}/dashboard.html">Full 11-lesson course</a><a href="{SITE}/earnings-disclaimer.html">Earnings disclaimer</a><a href="{SITE}/risk-disclaimer.html">Risk</a><a href="{SITE}/affiliate-disclosure.html">Affiliate disclosure</a><a href="{SITE}/privacy.html">Privacy</a><a class="button secondary" href="{TRIBE}" target="_blank" rel="noopener" aria-label="Join the MTG TRIBE WhatsApp group">Join the MTG TRIBE</a><a class="button secondary" href="{YOUTUBE}" data-youtube target="_blank" rel="noopener">YouTube</a><a class="button secondary" href="{OFFICIAL}" target="_blank" rel="sponsored noopener">Official Website</a></nav><p>Made with ❤️ by MTG 👑 | Your Digital Architect</p></footer>
   <button class="scroll-top" type="button" data-scroll-top aria-label="Scroll to the top"><span aria-hidden="true">↑</span></button><div class="toast" role="status" aria-live="polite" data-toast></div>'''
 
 
