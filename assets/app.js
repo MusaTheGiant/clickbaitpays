@@ -215,6 +215,28 @@
   const videoModalTitle = videoModal?.querySelector("[data-video-modal-title]");
   let videoPlayer = null;
   let videoReturnFocus = null;
+  let videoReturnSpot = null;
+  // Back to the video when it ends (MTG, 10 Nov 2026): the page returns to exactly where the visitor pressed play,
+  // with the video's card in the same place on screen, even if full screen moved the page meanwhile.
+  const backToVideo = repeat => {
+    const spot = videoReturnSpot, card = videoReturnFocus;
+    if (!spot) return;
+    const go = () => {
+      const root = document.documentElement, prev = root.style.scrollBehavior;
+      root.style.scrollBehavior = "auto";
+      if (card && card.isConnected && card.getClientRects().length) {
+        const dy = card.getBoundingClientRect().top - spot.top;
+        if (Math.abs(dy) > 2) window.scrollBy(0, dy);
+      } else if (Math.abs(window.scrollY - spot.y) > 2) window.scrollTo(0, spot.y);
+      root.style.scrollBehavior = prev;
+    };
+    requestAnimationFrame(go);
+    if (!repeat) return;
+    let moved = false;
+    const stop = () => { moved = true; };
+    ["wheel", "touchmove", "keydown"].forEach(type => document.addEventListener(type, stop, { capture: true, passive: true, once: true }));
+    [300, 700, 1200, 2000].forEach(ms => setTimeout(() => { if (!moved && videoModal?.hidden) go(); }, ms));
+  };
   let activeVideo = null;
   let youtubeApiPromise = null;
 
@@ -243,7 +265,8 @@
     if (videoPlayerSlot) videoPlayerSlot.innerHTML = "";
     videoModal.hidden = true;
     document.body.classList.remove("video-modal-open");
-    videoReturnFocus?.focus();
+    try { videoReturnFocus?.focus({ preventScroll: true }); } catch { videoReturnFocus?.focus(); }
+    backToVideo(completed);
     if (completed) showToast("Great watch! Continue below when you are ready to learn more.");
   };
 
@@ -258,6 +281,7 @@
       url: button.dataset.videoUrl || `https://www.youtube.com/watch?v=${videoId}`
     };
     videoReturnFocus = button;
+    videoReturnSpot = { y: window.scrollY, top: button.getBoundingClientRect().top };
     if (videoModalLabel) videoModalLabel.textContent = activeVideo.label;
     if (videoModalTitle) videoModalTitle.textContent = activeVideo.title;
     videoModal.hidden = false;
