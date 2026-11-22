@@ -241,11 +241,13 @@
   on(w, 'resize', function () {
     clearTimeout(fitT); fitT = setTimeout(function () { var pl = $('.pl.on:not(.max)'); if (pl && pl.getBoundingClientRect().height > plRoom(pl)) enterMax(pl); }, 350);
   });
+  /* a video file comes in two sizes: 720p for phones, 1080p for screens 1200 px and wider (as on /bw) */
+  function pickSrc(s, hd) { return hd && (w.innerWidth || html.clientWidth) >= 1200 ? hd : s; }
   function startInline(b) {
     var pl = b.closest('.pl'); if (!pl) return;
     pl._ret = pl.getBoundingClientRect().top;
     var img = $('.pl-scr img', pl);
-    plOpen(pl, b.getAttribute('data-code'), b.getAttribute('data-src'), b.getAttribute('data-yt'), img ? (img.currentSrc || img.src) : '');
+    plOpen(pl, b.getAttribute('data-code'), pickSrc(b.getAttribute('data-src'), b.getAttribute('data-src-hd')), b.getAttribute('data-yt'), img ? (img.currentSrc || img.src) : '');
     fitOrMax(pl);
   }
   function openPop(k) {
@@ -254,7 +256,7 @@
     var tx = $$('.pl-tx', pop); if (tx[0]) tx[0].textContent = info.bar; if (tx[1]) tx[1].textContent = info.d;
     sheet.setAttribute('aria-label', info.t + ' (' + info.d + ')');
     openSheet(sheet);
-    plOpen(pop, k, info.s, info.yt, info.p);
+    plOpen(pop, k, pickSrc(info.s, info.h), info.yt, info.p);
     fitOrMax(pop);
   }
   /* a finger or a mouse on a YouTube play button: start loading YouTube now, so the video starts the moment it is pressed */
@@ -355,7 +357,7 @@
     var calc = function () {
       var lv = +($('[name="lvl"]:checked', tool) || {}).value || 4, x = L.filter(function (r) { return r.l === lv; })[0];
       var first = ($('[name="first"]:checked', tool) || {}).value === '1';
-      var n = Math.max(1, Math.min(5, Math.round(+nIn.value || 1)));
+      var n = Math.max(1, Math.min(3, Math.round(+nIn.value || 1)));       // up to 3 active campaigns per account
       if (String(n) !== nIn.value) nIn.value = n;
       var pay = x.p * n + (first ? x.a : 0), clicks = x.n * n, day = x.c * x.n * n, tot = x.t * n;
       out('pay', usdt(pay));
@@ -376,7 +378,7 @@
         (n > 1 ? 'these ' + n + ' campaigns' : 'this campaign') + ' is ' + usdt(tot) + '.');
     };
     $$('input', tool).forEach(function (i) { on(i, 'input', calc); on(i, 'change', calc); });
-    on($('[data-inc]', tool), 'click', function () { nIn.value = Math.min(5, (+nIn.value || 1) + 1); calc(); });
+    on($('[data-inc]', tool), 'click', function () { nIn.value = Math.min(3, (+nIn.value || 1) + 1); calc(); });
     on($('[data-dec]', tool), 'click', function () { nIn.value = Math.max(1, (+nIn.value || 1) - 1); calc(); });
     on($('[data-reset]', tool), 'click', function () {
       $('[name="lvl"][value="4"]', tool).checked = true; $('[name="first"][value="1"]', tool).checked = true; nIn.value = 1; dIn.value = today(); calc();
