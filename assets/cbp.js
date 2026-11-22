@@ -357,7 +357,7 @@
     var calc = function () {
       var lv = +($('[name="lvl"]:checked', tool) || {}).value || 4, x = L.filter(function (r) { return r.l === lv; })[0];
       var first = ($('[name="first"]:checked', tool) || {}).value === '1';
-      var n = Math.max(1, Math.min(5, Math.round(+nIn.value || 1)));
+      var n = Math.max(1, Math.min(3, Math.round(+nIn.value || 1)));       // up to 3 active campaigns per account
       if (String(n) !== nIn.value) nIn.value = n;
       var pay = x.p * n + (first ? x.a : 0), clicks = x.n * n, day = x.c * x.n * n, tot = x.t * n;
       out('pay', usdt(pay));
@@ -378,7 +378,7 @@
         (n > 1 ? 'these ' + n + ' campaigns' : 'this campaign') + ' is ' + usdt(tot) + '.');
     };
     $$('input', tool).forEach(function (i) { on(i, 'input', calc); on(i, 'change', calc); });
-    on($('[data-inc]', tool), 'click', function () { nIn.value = Math.min(5, (+nIn.value || 1) + 1); calc(); });
+    on($('[data-inc]', tool), 'click', function () { nIn.value = Math.min(3, (+nIn.value || 1) + 1); calc(); });
     on($('[data-dec]', tool), 'click', function () { nIn.value = Math.max(1, (+nIn.value || 1) - 1); calc(); });
     on($('[data-reset]', tool), 'click', function () {
       $('[name="lvl"][value="4"]', tool).checked = true; $('[name="first"][value="1"]', tool).checked = true; nIn.value = 1; dIn.value = today(); calc();

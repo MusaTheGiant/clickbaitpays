@@ -860,3 +860,15 @@ input:focus,textarea:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 
 
 /* an address in the order form wraps instead of running off a small phone (clickbaitpaysus.com/yourname is one long word) */
 .oform small b{overflow-wrap:anywhere}
+
+/* the presentation slides as a free PDF (MTG, 22 Nov 2026) */
+.deck{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;margin-top:16px;padding:16px;border-radius:var(--r);border:1px solid rgba(255,216,102,.45);
+  background:linear-gradient(135deg,rgba(255,216,102,.08),rgba(16,5,37,.88));min-width:0}
+.deck img{width:100%;height:auto;border-radius:12px;box-shadow:0 14px 34px rgba(0,0,0,.45)}
+.dk-t{display:grid;gap:8px;align-content:center;min-width:0}
+.dk-t small{display:flex;align-items:center;gap:6px;font-weight:700;font-size:.8rem;color:var(--gold)}
+.dk-t h3{font:800 1.15rem/1.25 var(--display)}
+.dk-t p{font-size:.92rem;color:var(--soft)}
+.dk-t .btn{justify-self:start}
+@media (min-width:760px){.deck{grid-template-columns:minmax(0,5fr) minmax(0,6fr);padding:20px}}
+@media (max-width:420px){.dk-t .btn{justify-self:stretch}}
