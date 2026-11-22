@@ -1,11 +1,4 @@
-User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
 User-agent: *
 Allow: /
 
 Sitemap: https://clickbaitpaysus.com/sitemap.xml
-Sitemap: https://clickbaitpaysus.com/mtg/sitemap.xml

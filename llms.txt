@@ -1,44 +1,53 @@
-# ClickBaitPaysUs Learning
+# ClickBaitPays Guide by MTG (clickbaitpaysus.com)
 
-> Independent, plain-English ClickBaitPays education created by MTG. Learn how campaign levels, advertising, daily ad-viewing activity, campaign timing, crypto deposits and withdrawals, account rules and risk fit together before deciding whether to participate.
+> An independent, plain-English guide to ClickBaitPays (clickbaitpays.me), a paid-to-click advertising platform: members buy ad campaigns to advertise their own link and are paid in USDT for viewing other members' ads. By MTG (MusaTheGiant), "Your Digital Architect", an active member. Education only, not official ClickBaitPays material, not financial advice. Figures checked 21 November 2026.
 
-Canonical website: https://clickbaitpaysus.com/
-Sitemap: https://clickbaitpaysus.com/sitemap.xml
-Creator: MTG
-Language: English
+## Start here
 
-## Primary pages
+- [ClickBaitPays in 3 videos](https://clickbaitpaysus.com/): Welcome to ClickBaitPays, the income strategy and the back office walkthrough, then the dashboard.
 
-- [Home](https://clickbaitpaysus.com/): Clear introduction to the ClickBaitPays advertising and viewer model.
-- [Learning Dashboard](https://clickbaitpaysus.com/dashboard.html): Complete 11-lesson learning workspace.
-- [Start Here](https://clickbaitpaysus.com/start-here.html): Guided learning path for beginners.
-- [Campaign Levels 1 to 7](https://clickbaitpaysus.com/campaign-levels.html): Campaign costs, activation fees, daily ads, completion values and listed member amounts.
-- [Daily Clicks and Earnings Lifecycle](https://clickbaitpaysus.com/daily-clicks-earnings.html): Daily activity, campaign completion, holding period and Available Balance.
-- [Staggered Campaign Strategy](https://clickbaitpaysus.com/staggered-campaign-strategy.html): Simultaneous and seven-day staggered campaign timing.
-- [Profit Calculator](https://clickbaitpaysus.com/profit-calculator.html): Plan up to three campaigns total and estimate capital, returns, profit, ROI and dates.
-- [Account Rules and Safety](https://clickbaitpaysus.com/account-rules-safety.html): Account limits, manual participation and security guidance.
-- [Frequently Asked Questions](https://clickbaitpaysus.com/faq.html): Clear answers about campaigns, earnings, advertising, withdrawals and risk.
-- [Tutorial Videos](https://clickbaitpaysus.com/tutorials.html): Step-by-step platform walkthroughs.
-- [Explainer Videos](https://clickbaitpaysus.com/videos.html): Platform, campaign and compensation explanations.
-- [Resources](https://clickbaitpaysus.com/resources.html): Guides, slides and supporting learning material.
+## Dashboard pages (one topic each)
 
-## Important accuracy notes
+- [Welcome](https://clickbaitpaysus.com/dashboard/): The ClickBaitPays dashboard by MTG: one short page per topic, from the compensation plan and how to join to the 7 levels, the 12 + 7 timeline and tutorials.
+- [What Is ClickBaitPays?](https://clickbaitpaysus.com/dashboard/what-is-clickbaitpays/): ClickBaitPays explained simply: put any link in front of real people, get paid in USDT to view their ads, and grow every income stream you already have.
+- [Promote Your Link](https://clickbaitpaysus.com/dashboard/promote-your-link/): Promote BellverCards, Bitcoin Wealth, JetUP, XFUSION, MLM, affiliate, stokvel or digital product links to real people on ClickBaitPays, and get paid too.
+- [Compensation Plan](https://clickbaitpaysus.com/dashboard/compensation-plan/): The ClickBaitPays compensation plan in plain English: pay per click at all 7 levels, the one-time activation, the 10% referral commission and the 12 + 7 payout.
+- [How It Works](https://clickbaitpaysus.com/dashboard/how-it-works/): How ClickBaitPays works in 5 steps: join free, fund your account, buy and activate a campaign, click your daily ads, then use your Available Balance.
+- [How To Join](https://clickbaitpaysus.com/dashboard/join/): Join ClickBaitPays free in 3 steps through a member's link. The house rules: home Wi-Fi only, one account per person, up to 3 per household, same sponsor.
+- [The 7 Levels](https://clickbaitpaysus.com/dashboard/levels/): All 7 ClickBaitPays levels in one table: the campaign price, the one-time activation fee, pay per click, clicks a day and the platform's own campaign total.
+- [The 12 + 7 Timeline](https://clickbaitpaysus.com/dashboard/timeline/): Click your ClickBaitPays ads on 12 days, the earnings rest 7 days, then they reach your Available Balance. Clicks reset at 7:00 AM in South Africa.
+- [Calculator](https://clickbaitpaysus.com/calculator/): Pick a ClickBaitPays level and see what you pay today, your clicks a day, the platform's campaign total and roughly when it reaches your Available Balance.
+- [Your Daily Routine](https://clickbaitpaysus.com/dashboard/daily-routine/): Your ClickBaitPays daily routine in 4 steps: log in, open Click Ads, view each ad for 15 seconds, Confirm and Earn. New clicks every day from 7:00 AM SAST.
+- [All Tutorials](https://clickbaitpaysus.com/dashboard/tutorials/): Every ClickBaitPays tutorial in order: back office tour, deposit, your first campaign, another campaign, withdrawal, Login Ads and Pay It Forward.
+- [Back Office Tour](https://clickbaitpaysus.com/dashboard/tutorials/back-office-tour/): A quick tour of the ClickBaitPays back office: your dashboard, ad campaigns, activation, Click Ads, deposits, withdrawals and Pay It Forward, step by step.
+- [Deposit USDT](https://clickbaitpaysus.com/dashboard/tutorials/deposit/): How to deposit USDT into ClickBaitPays safely: enter the amount, pay through NOWPayments, use a fresh address every time and wait for the confirmation.
+- [Your First Campaign](https://clickbaitpaysus.com/dashboard/tutorials/first-campaign/): Buy your first ClickBaitPays ad campaign on a new level, activate earning once, and click your daily ads: title, link, Preview, Confirm Purchase, step by step.
+- [Another Campaign](https://clickbaitpaysus.com/dashboard/tutorials/another-campaign/): Buy another ClickBaitPays campaign on a level you already activated: no activation fee the second time, two tabs on Click Ads, and the 12 + 7 timeline.
+- [Withdraw](https://clickbaitpaysus.com/dashboard/tutorials/withdraw/): How to request a ClickBaitPays withdrawal: once a week, a $10 USDT minimum and a 10% fee, your wallet address and your Security PIN, step by step.
+- [Create A Login Ad](https://clickbaitpaysus.com/dashboard/tutorials/login-ad/): Create a ClickBaitPays Login Ad: every member sees your link for 30 seconds when they log in, for 30 days, for $20 USDT. Title, link, Preview, step by step.
+- [Pay It Forward](https://clickbaitpaysus.com/dashboard/tutorials/pay-it-forward/): Pay It Forward on ClickBaitPays: send funds from your Available Balance to another member. Check the username twice, add a message, confirm with your PIN.
+- [Video Library](https://clickbaitpaysus.com/dashboard/videos/): Every ClickBaitPays video in one place: the welcome video, income strategy, back office walkthrough, the full presentation, the live Q&A and the tutorials.
+- [Is It Legit?](https://clickbaitpaysus.com/dashboard/is-clickbaitpays-legit/): Is ClickBaitPays legit or a scam? What it is, where the pay comes from, what MTG sees in his own account, and how to check it yourself with a small start.
+- [FAQ](https://clickbaitpaysus.com/dashboard/faq/): ClickBaitPays questions answered: is it free, how members get paid, the activation fee, withdrawals, logging in, Login Ads and referrals. Plus a live Q&A.
+- [Disclaimer](https://clickbaitpaysus.com/disclaimer/): The small print in plain words: an independent ClickBaitPays guide, the referral link disclosure, where the figures come from and what this site stores.
+- [My Income Streams](https://clickbaitpaysus.com/dashboard/my-income-streams/): Need something to promote on ClickBaitPays? Add MTG's own income streams, each with a full guide: BellverCards, JetUP with TAG Markets, and Bitcoin Wealth.
+- [Get This Website](https://clickbaitpaysus.com/cbpcopy/): Own this ClickBaitPays guide with your referral link on every Join button, every video and tutorial, at clickbaitpaysus.com/yourname. Pay only if you like it.
 
-- The website is an independent educational resource and is not the official ClickBaitPays website.
-- Campaign and calculator figures are estimates based on the figures displayed on the website.
-- The current rule used by the calculator is a maximum of three active campaigns total per account, regardless of level combination.
-- Earnings, profit and withdrawals are not guaranteed.
-- Visitors should verify current platform terms before participating.
+## Key facts
 
-## ClickBaitPays Quick Guide (for busy people and team builders)
-
-A short, action-focused version of this website by MTG at https://clickbaitpaysus.com/mtg/. Sitemap: https://clickbaitpaysus.com/mtg/sitemap.xml
-
-- [Quick Guide home](https://clickbaitpaysus.com/mtg/): ClickBaitPays explained in about 10 minutes: five-step campaign cycle, all 7 campaign levels, key rules and where platform revenue comes from.
-- [Video Tutorials](https://clickbaitpaysus.com/mtg/video-tutorials/): Overview, income and commission plan, back office walkthrough and the 14 September 2026 presentation, in viewing order.
-- [Profit Calculator](https://clickbaitpaysus.com/mtg/profit-calculator/): Plan up to three simultaneous or staggered campaigns and estimate capital, listed member amounts, profit, ROI and dates.
-- [FAQ](https://clickbaitpaysus.com/mtg/faq/): 23 straight answers grouped by basics, campaigns and withdrawals, referrals and team building, and advertising and sustainability.
-- [Glossary](https://clickbaitpaysus.com/mtg/glossary/): ClickBaitPays, advertising and crypto terms in plain English.
-- [Request a Copy](https://clickbaitpaysus.com/mtg/request-a-copy/): A personalized copy of the Quick Guide with your own referral link, profile image and contact links for a one-time 32 USDT (TRC-20), hosting on clickbaitpaysus.com and lifetime updates included.
-
-Key facts used in the Quick Guide: registration is free; Level 1 costs 14 USDT for the first campaign; a maximum of three active campaigns total per account; 12 click days followed by a fixed seven-day hold; 10% withdrawal fee with one request per week; optional one-time 10% direct commission on the purchase price of Ad Campaigns bought by direct referrals, credited instantly (Ad Campaigns only, not activation fees; all sales final); up to three household accounts with the same original sponsor.
+- Joining is free, through a member's referral link. Register from home Wi-Fi (no VPN or mobile data during sign-up). One account per person, up to 3 per household under the same sponsor.
+- Each campaign runs 12 click days. A click day counts when all of that level's daily clicks are done; clicks reset at midnight Panama time (7:00 AM in South Africa).
+- Each in-dashboard ad has a 15-second countdown, then Confirm & Earn. Members receive 90% of the advertiser's cost per click.
+- To earn at a level, pay its one-time activation fee once; it never expires. These fees also support the platform's sustainability.
+- After the 12th click day, earnings are held 7 days, then move to the Available Balance: withdraw (once a week, minimum $10 USDT, 10% fee), Pay It Forward to another member, or buy a new campaign.
+- Login Ads: $20 USDT for 30 days, shown to every member for 30 seconds at login; they pay nothing, they buy views.
+- Referrals are optional; sponsors receive 10% of the campaigns their referrals buy.
+- What members promote: any program with a link, for example BellverCards, Bitcoin Wealth, JetUP, XFUSION, Solar Group, Aureus Alliance, stokvel and smart contract platforms, MLM and affiliate programs, digital products and their own businesses. Each view is a real member opening the advertiser's page for a 15-second countdown.
+- MTG's own experience: he found BellverCards through an ad on ClickBaitPays, joined, and is earning and ranking up (his experience, not a promise).
+- Level 1: campaign $13 USDT, one-time activation $1 USDT, $0.48 USDT per click, 3 clicks a day, campaign total $17.17 USDT (platform figures)
+- Level 2: campaign $77 USDT, one-time activation $7 USDT, $2.83 USDT per click, 3 clicks a day, campaign total $101.74 USDT (platform figures)
+- Level 3: campaign $150 USDT, one-time activation $15 USDT, $5.40 USDT per click, 3 clicks a day, campaign total $194.40 USDT (platform figures)
+- Level 4: campaign $300 USDT, one-time activation $30 USDT, $6.48 USDT per click, 5 clicks a day, campaign total $388.80 USDT (platform figures)
+- Level 5: campaign $600 USDT, one-time activation $60 USDT, $10.80 USDT per click, 6 clicks a day, campaign total $777.60 USDT (platform figures)
+- Level 6: campaign $1,200 USDT, one-time activation $120 USDT, $12.96 USDT per click, 10 clicks a day, campaign total $1,555.20 USDT (platform figures)
+- Level 7: campaign $2,400 USDT, one-time activation $240 USDT, $13.50 USDT per click, 20 clicks a day, campaign total $3,240.00 USDT (platform figures)

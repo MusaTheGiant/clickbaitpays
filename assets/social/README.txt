@@ -1,1 +1,0 @@
-Page-specific 1200 x 630 social preview images. Keep each image synchronized with its page head and the corresponding entry in assets/page-metadata.json. Run node tests/site-integration.test.js before publishing.
