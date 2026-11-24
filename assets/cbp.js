@@ -391,7 +391,7 @@
   if (OF) {
     var slugIn = $('[name="slug"]', OF), addr = $('[data-out="addr"]', OF);
     var slugify = function (v) { return String(v || '').toLowerCase().replace(/[^a-z0-9]+/g, '').slice(0, 24); };
-    var dom = function () { var r = $('[name="domain"]:checked', OF); return r ? r.value : 'mtgtribe.com/cbp/'; };
+    var dom = function () { return 'clickbaitpaysus.com/'; };       // every copy lives here (MTG, 24 Nov 2026)
     var paintAddr = function () { addr.textContent = dom() + (slugify(slugIn.value) || 'yourname'); };
     on(slugIn, 'input', paintAddr); $$('[name="domain"]', OF).forEach(function (r) { on(r, 'change', paintAddr); }); paintAddr();
     on(OF, 'submit', function (e) {
